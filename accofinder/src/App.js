@@ -4,7 +4,7 @@ import MainLayout from "./MainLayout";
 
 function App() {
   return (
-      <div>
+      <div className=" font-roboto">
         <MainLayout/>
       </div>
      

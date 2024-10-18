@@ -1,16 +1,16 @@
-import React from "react"
-import { list } from "../../data/Data"
+import React from "react";
+import { list } from "../../data/Data";
 
-const RecentCard = () => {
+const ListingCard = () => {
   return (
     <>
-      <div className='grid grid-cols-4 gap-4 mt-6'>
+      <div className='max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6'> {/* Responsive grid */}
         {list.map((val, index) => {
-          const { cover, status,name, price, type, rating, distance } = val;
+          const { cover, status, name, price, type, rating, distance } = val;
           return (
-            <div className='bg-white shadow-md rounded-lg' key={index} style={{ width: '250px' }}> {/* Adjust card width */}
+            <div className='bg-white shadow-md rounded-lg' key={index} style={{ maxWidth: '300px' }}> {/* Adjust card width */}
               <div className='img'>
-                <img src={cover} alt='' className='w-full h-32 object-cover rounded-t-lg' /> {/* Adjust height */}
+                <img src={cover} alt='' className='w-full h-40 object-cover rounded-t-lg' /> {/* Adjust height */}
               </div>
               <div className='p-4'>
                 <div className='flex justify-between items-center mb-3'>
@@ -42,10 +42,9 @@ const RecentCard = () => {
             </div>
           );
         })}
-        </div>
-
+      </div>
     </>
-  )
+  );
 }
 
-export default RecentCard
+export default ListingCard;

@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBar from '../componets/searching/SearchBar'
 import Heading from '../componets/home/recent/Heading'
-import Fileters from '../componets/searching/Fileters'
+import Filtering from '../componets/searching/Filtering'
 import Listing from '../componets/home/recent/Listing'
 
 export default function SearchingPage() {
@@ -12,7 +12,7 @@ export default function SearchingPage() {
             title= "Serach Title"
             subtitle={"Sub title of the serach result"}
         />
-        <Fileters/>
+        <Filtering/>
         <Listing/>
        
     </div>

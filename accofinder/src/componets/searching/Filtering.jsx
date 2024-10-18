@@ -1,7 +1,7 @@
 import React from 'react'
 import { filter } from '../data/Data'
 
-export default function 
+export default function Filtering
 () {
   return (
     <div className=' w-screen flex justify-center'>

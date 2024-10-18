@@ -11,9 +11,7 @@ const Hero = () => {
            subtitle='Discover beautiful hostels worldwide, chosen by top real estate experts. 
                     Your perfect home is just a search away' 
           
-          />
-                                            
-
+          />                                           
           <form className='flex'>
             <div className='box'>
               <span>City/Street</span>

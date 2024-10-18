@@ -1,9 +1,13 @@
 import React from "react";
+import MainLayout from "./MainLayout";
+
+
 function App() {
   return (
-    <div >
-      <h1 className= ' text-yellow-600'> Hello Word</h1>
-    </div>
+      <div>
+        <MainLayout/>
+      </div>
+     
   );
 }
 

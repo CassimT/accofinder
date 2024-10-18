@@ -6,7 +6,7 @@ import Listing from '../componets/home/recent/Listing'
 
 export default function SearchingPage() {
   return (
-    <div className=' flex flex-col justify-center'>     
+    <div className='flex justify-center items-center flex-col min-h-screen'> 
         <SearchBar/>
         <Heading
             title= "Serach Title"

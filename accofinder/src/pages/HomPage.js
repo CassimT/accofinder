@@ -4,9 +4,9 @@ import Heading from '../componets/home/recent/Heading'
 
 export default function HomPage() {
   return (
-    <div className=' flex justify-center flex-col'>
+    <div className='flex justify-center items-center flex-col min-h-screen'>
          <Heading
-            title='Explore top houses'
+            title='Explore top Rooms'
           />
         <Listing/>
     </div>

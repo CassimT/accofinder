@@ -1,5 +1,5 @@
-import React from 'react'
-import Listing from '../componets/home/recent/Listing'
+import React from 'react';
+import Listing from '../componets/home/recent/Listing';
 
 export default function HomPage() {
   return (

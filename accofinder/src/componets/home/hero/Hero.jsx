@@ -1,41 +1,24 @@
-import React from "react"
-import Heading from "../../common/Heading"
-import "./hero.css"
+import React from "react";
 
 const Hero = () => {
   return (
-    <>
-      <section className='hero'>
-        <div className='container'>
-          <Heading title='Off-Campus Living,On-Campus Convenience '
-           subtitle='Discover beautiful hostels worldwide, chosen by top real estate experts. 
-                    Your perfect home is just a search away' 
-          
-          />                                           
-          <form className='flex'>
-            <div className='box'>
-              <span>City/Street</span>
-              <input type='text' placeholder='Location' />
-            </div>
-            <div className='box'>
-              <span>Property Type</span>
-              <input type='text' placeholder='Property Type' />
-            </div>
-            <div className='box'>
-              <span>Price Range</span>
-              <input type='text' placeholder='Price Range' />
-            </div>
-            <div className='box'>
-              <h4>Advance Filter</h4>
-            </div>
-            <button className='btn1'>
-              <i className='fa fa-search'></i>
-            </button>
-          </form>
-        </div>
-      </section>
-    </>
-  )
-}
-
-export default Hero
+    <div className="w-full">
+    <div className="flex flex-col items-center justify-center h-[95vh] bg-[url('./componets/home/hero/bed3.jpg')] bg-cover bg-no-repeat ">
+      <div className="text-center m-5">
+        <span className="block text-2xl border rounded-full bg-slate-300">
+          Student-approved housing option
+        </span>
+        <h1 className="text-6xl text-white font-bold m-8 font-sans">
+          Off-Campus Living, <br /> On Campus Convenience
+        </h1>
+        <p className="font-semibold text-xl mt-5 text-white">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
+          <br/>dolor sit amet consectetur adipisicing elit. Cupiditate blanditiis rem 
+        </p>
+      </div>
+     
+    </div>
+    </div>
+  );
+};
+export default Hero;

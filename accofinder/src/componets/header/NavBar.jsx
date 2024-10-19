@@ -1,12 +1,12 @@
 import React from "react";
 import { BiHome } from "react-icons/bi";
-import Button from "./components/header/Button";
+import Button from "./Button";
 import { FaSearch } from "react-icons/fa";
 
 const NavBar = () => {
   return (
     <div>
-      <div className="fixed w-full">
+      <div className="w-full">
         <div>
           <div className="flex flex-row justify-between py-4 px-16 bg-white shadow-[0_3px_10px_rgba(0,0,0,0.2)]">
             <div className="flex flex-row gap-2 items-center">

@@ -21,7 +21,7 @@ const NavBar = () => {
                   <a href="">Home</a>
                 </li>
                 <li className="hover:text-orange-700 hover:underline duration-500 transition-transform">
-                  <a  href="">Agents</a>
+                  <a href="">Agents</a>
                 </li>
                 <li className="hover:text-orange-700 hover:underline duration-500 transition-transform">
                   <a href="">Accomodation</a>
@@ -42,7 +42,7 @@ const NavBar = () => {
                 />
               </div>
 
-              <button className="px-4 py-2 bg-none text-black border-black font-semibold border rounded-2xl  transiton-all">
+              <button className="px-4 py-2 transition duration-500 hover:scale-95 bg-none text-black border-black font-semibold border rounded-2xl  transiton-all">
                 Log in
               </button>
               <Button title="Sign up" />

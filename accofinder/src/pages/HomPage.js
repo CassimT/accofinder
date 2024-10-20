@@ -1,7 +1,4 @@
 import React from 'react'
-import Listing from '../componets/home/recent/Listing'
-import Heading from '../componets/home/recent/Heading'
-import React from 'react';
 import Listing from '../componets/home/recent/Listing';
 import Hero from "../componets/home/hero/Hero";
 import Heading from '../componets/home/recent/Heading'

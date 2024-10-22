@@ -4,25 +4,10 @@ export const nav = [
     path: "/",
   },
   {
-    text: "about",
-    path: "/about",
+    text: "Agent",
+    path: "/agents",
   },
-  {
-    text: "services",
-    path: "/services",
-  },
-  {
-    text: "blog",
-    path: "/blog",
-  },
-  {
-    text: "pricing",
-    path: "/pricing",
-  },
-  {
-    text: "contact",
-    path: "/contact",
-  },
+
 ]
 export const featured = [
   {
@@ -94,7 +79,7 @@ export const list = [
     status: "not available",
     price: "MK257,540",
     type: "Single Room",
-    rating: 5.0
+    rating: 5.1
   },
   {
     id: 5,
@@ -105,7 +90,7 @@ export const list = [
     price: "MK260,850",
     type: "Double Room",
     distance: 0.7,
-    rating: 4.0
+    rating: 4.1
   },
   {
     id: 6,
@@ -127,7 +112,7 @@ export const list = [
     price: "MK260,850",
     type: "Double Room",
     distance: 0.7,
-    rating: 4.0
+    rating: 4.2
   },
   {
     id: 8,
@@ -157,3 +142,6 @@ export const footer = [
     text: [{ list: "About" }, { list: "Blog" }, { list: "Pricing" }, { list: "Affiliate" }, { list: "Login" }, { list: "Changelog" }],
   },
 ]
+ export const filter = [
+  {text: "Single"},{text: "Double"},{text: "self Contained"},{text: "near compus"}
+ ]

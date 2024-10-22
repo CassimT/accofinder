@@ -16,12 +16,11 @@ import ProfilePage from "./pages/ProfilePage";
 
 const MainLayout = () => {
   return (
-    <Router>
       <div>
         <Routes>
           <Route path="/" element={<HomPage />} />
           
-          <Route path="/agents" element={<AgentPage />} />
+          <Route path="/agents/*" element={<AgentPage />} />
           <Route path="/details" element={<DetailsPage />} />
           <Route path="/signin" element={<SingInPage />} />
           <Route path="/signup" element={<SingUpPage />} />
@@ -30,7 +29,6 @@ const MainLayout = () => {
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </div>
-    </Router>
   );
 };
 

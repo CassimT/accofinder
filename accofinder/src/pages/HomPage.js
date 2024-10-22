@@ -6,7 +6,7 @@ import NewsLetter from '../componets/home/hero/NewsLetter/NewsLetter';
 
 export default function HomPage() {
   return (
-    <div className='flex justify-center items-center flex-col min-h-screen'>
+    <div className='flex justify-center items-center flex-col min-h-screen w-screen'>
          <Hero/>
          <Heading
             title='Explore top Rooms'

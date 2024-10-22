@@ -4,25 +4,10 @@ export const nav = [
     path: "/",
   },
   {
-    text: "about",
-    path: "/about",
+    text: "Agent",
+    path: "/agents",
   },
-  {
-    text: "services",
-    path: "/services",
-  },
-  {
-    text: "blog",
-    path: "/blog",
-  },
-  {
-    text: "pricing",
-    path: "/pricing",
-  },
-  {
-    text: "contact",
-    path: "/contact",
-  },
+
 ]
 export const featured = [
   {

@@ -1,14 +1,14 @@
-import React from 'react'
 
+import React from 'react';
 
-//import DetailsCard from "./componets/details/DetailsCard"
-export default function ListDetails({title, subtitle}) {
+function ListingDetails({ title, subtitle, children }) {
   return (
-    <div className='flex flex-col bg-blue-700 h-72 w-56 rounded-md '>
-    
+    <div className="bg-blue-700 h-72 w-56 rounded-md flex flex-col p-4">
+      <h2 className="text-white text-lg font-bold">{title}</h2>
+      <p className="text-white text-sm">{subtitle}</p>
+      <div className="flex-1 overflow-y-auto">{children}</div>
     </div>
-  )
+  );
 }
 
-
-// this page is meant for cards
+export default ListingDetails; 

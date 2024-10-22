@@ -140,6 +140,7 @@ export const list = [
     type: "Single Room",
     rating: 2.6
   },
+ 
 ]
 
 export const footer = [

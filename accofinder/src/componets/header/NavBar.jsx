@@ -17,12 +17,20 @@ const NavBar = () => {
   const handleSearchInputChange = (event) => {
     setSearchTerm(event.target.value); // Update search term
   };
+  const goToSingIn = ()=> {
+      navigate("/singin")
+  }
+  const goTologIn = ()=> {
+    navigate("/login")
+}
+
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      // Replace '/some-path' with the actual path you want to navigate to
-      const path = `/Searching?query=${searchTerm}`; 
-      navigate(path); // Navigate to the path
+      // Construct the path with the search query
+      const path = `/Searching?query=${encodeURIComponent(searchTerm)}`;
+      // Navigate to the path and pass the searchTerm through state
+      navigate(path, { state: { term: searchTerm } });
     }
   };
 

@@ -1,7 +1,13 @@
 import React from "react";
 import { list } from "../../data/Data";
+import { useNavigate} from "react-router-dom";
 
 const ListingCard = () => {
+  const navigate = useNavigate();
+  const goToDetails = ()=> {
+    navigate("/details");
+  }
+
   return (
     <>
       <div className='max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6'> {/* Responsive grid */}
@@ -37,7 +43,10 @@ const ListingCard = () => {
                   <span className='text-gray-600 text-sm'>{type}</span> {/* Adjust font size */}
                   <button className='bg-gray-600 text-white py-1 px-3 rounded opacity-30 mt-1 text-sm'>{price}</button> {/* Adjust button size */}
                 </div>
-                <button className='bg-black text-white py-1 px-4 rounded-full mt-auto text-sm'>More</button> {/* Adjust button size */}
+                <button className='bg-black text-white py-1 px-4 rounded-full mt-auto text-sm'
+                  onClick={goToDetails}
+                    
+                >More</button> {/* Adjust button size */}
               </div>
             </div>
           );

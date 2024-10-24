@@ -2,6 +2,7 @@ export const nav = [
   {
     text: "home",
     path: "/",
+    icon: "fa fa-edit"
   },
   {
     text: "Agent",
@@ -145,3 +146,4 @@ export const footer = [
  export const filter = [
   {text: "Single"},{text: "Double"},{text: "self Contained"},{text: "near compus"}
  ]
+

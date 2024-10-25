@@ -14,7 +14,7 @@ function Payments() {
   return (
     <div className="w-full h-screen">
       <div className="bg-gradient-to-r to-blue-500 from-green-600 flex flex-col h-[60vh] items-center justify-center relative">
-        <p className="text-2xl font-semibold font-sans mb-14 text-center">   
+        <p className="text-2xl font-semibold font-sans mb-14 text-center">
           Your payment is safe with us. We use secure encryption and trusted
           <br />
           payment gateways to protect your information <br /> Book with
@@ -28,10 +28,12 @@ function Payments() {
             className="flex flex-col gap-y-5 items-center justify-center mt-10"
           >
             <div className="flex fle-row gap-2">
-            <input type="radio" id="mobile"/>
-            <label for="mobile" className="text-lg font-medium font-sans">Mobile wallet</label>
+              <input type="radio" id="mobile" />
+              <label for="mobile" className="text-lg font-medium font-sans">
+                Mobile wallet
+              </label>
             </div>
-            
+
             <label className="flex flex-col">
               Username
               <input

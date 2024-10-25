@@ -2,27 +2,13 @@ export const nav = [
   {
     text: "home",
     path: "/",
+    icon: "fa fa-edit"
   },
   {
-    text: "about",
-    path: "/about",
+    text: "Agent",
+    path: "/agents",
   },
-  {
-    text: "services",
-    path: "/services",
-  },
-  {
-    text: "blog",
-    path: "/blog",
-  },
-  {
-    text: "pricing",
-    path: "/pricing",
-  },
-  {
-    text: "contact",
-    path: "/contact",
-  },
+
 ]
 export const featured = [
   {
@@ -159,3 +145,4 @@ export const footer = [
  export const filter = [
   {text: "Single"},{text: "Double"},{text: "self Contained"},{text: "near compus"}
  ]
+

@@ -1,79 +1,29 @@
-import { useState, React } from "react";
+import { React } from "react";
+import { FaCreditCard } from "react-icons/fa";
 
-function Payments() {
-  const [username, setUsername] = useState("");
-  const [phone, setPhone] = useState("");
-  const [amount, setAmount] = useState("");
-
-  // function for handling form submition
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ username, phone, amount });
-  };
-
+const Payments = () => {
+ 
   return (
     <div className="w-full h-screen">
-      <div className="bg-gradient-to-r to-blue-500 from-green-600 flex flex-col h-[60vh] items-center justify-center relative">
+      <div className="flex flex-col h-[60vh] items-center justify-center relative bg-[url('./pay3.jpg')] bg-cover bg-no-repeat">
         <p className="text-2xl font-semibold font-sans mb-14 text-center">
-          Your payment is safe with us. We use secure encryption and trusted
+          Your payment is safe with us
           <br />
-          payment gateways to protect your information <br /> Book with
-          confidence
+         Book with confidence
         </p>
 
-        {/* payment form for mobile wallet */}
-        <div className="border border-gray-50 bg-[#f4f4f4] shadow-xl w-[45%] h-[60vh] rounded-xl absolute -mb-96">
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-y-5 items-center justify-center mt-10"
-          >
-            <div className="flex fle-row gap-2">
-              <input type="radio" id="mobile" />
-              <label for="mobile" className="text-lg font-medium font-sans">
-                Mobile wallet
-              </label>
-            </div>
-
-            <label className="flex flex-col">
-              Username
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Username"
-                className="py-2 px-4 rounded-xl "
-              />
-            </label>
-            <label className="flex flex-col">
-              Phone number
-              <input
-                type="phone"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="Phone number"
-                className="py-2 px-4  rounded-xl "
-              />
-            </label>
-            <label className="flex flex-col">
-              Amount
-              <input
-                type="text"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                placeholder="Amount"
-                className="py-2 px-4 border-none rounded-xl "
-              />
-            </label>
-            <button
-              type="submit"
-              className="px-8 text-bold py-2 mt-5 rounded-xl bg-black text-white hover:scale-95 tranition duration-500"
-            >
-              Pay
-            </button>
-          </form>
+        {/* card for selecting payment method */}
+        <div className="flex flex-col items-center justify-center border border-gray-50 bg-[#f4f4f4] shadow-xl w-[40%] h-[55vh] rounded-xl absolute -mb-96">
+          <button className="flex flex-row gap-4 hover:scale-95 transition duration-500 px-9 py-2 border-2 bg-indigo-200 border-indigo-400 rounded-lg font-sans font-semibold">
+            <FaCreditCard className="mt-1" /> Pay via credit card
+          </button>
+          
+         <button className="hover:scale-95 transition duration-500 px-10 py-2 border-2 bg-indigo-200 border-indigo-400 rounded-lg font-sans font-semibold">
+            Mobile /Airtelmoney
+          </button>
         </div>
       </div>
     </div>
   );
-}
+};
 export default Payments;

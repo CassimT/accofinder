@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const HomeLogin = () => {
+const Signin = () => {
   const navigate = useNavigate();
 
   return (
@@ -47,4 +47,4 @@ const HomeLogin = () => {
   );
 };
 
-export default HomeLogin;
+export default Signin;

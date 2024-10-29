@@ -41,6 +41,10 @@ export const list = [
   {
     id: 1,
     cover: "../images/list/p-1.jpg",
+    imgSrc: "../images/list/p1.jpg" ,
+    kitchen:"../images/list/p5.jpg",
+    bathroom:"../imageslist/p3.jpg",
+    bedroom:"../imageslist/p14.jpg",
     name: "Incah",
     location: "210 Zirak Road, Canada",
     distance: 0.9,
@@ -52,6 +56,12 @@ export const list = [
   {
     id: 2,
     cover: "../images/list/p-2.png",
+    hostelImages:{
+      imgSrc: "../images/list/p3.jpg" ,
+    kitchen:"../images/list/p6.jpg",
+    bathroom:"../imageslist/p3.jpg",
+    bedroom:"../imageslist/p14.jpg",
+    },
     name: "Kondwani Hostel",
     location: "5698 Zirak Road, NewYork",
     distance: 3,
@@ -146,4 +156,32 @@ export const footer = [
  export const filter = [
   {text: "Single"},{text: "Double"},{text: "self Contained"},{text: "near compus"}
  ]
+ export const tileData = [
+  { id: 1, imgSrc: "../images/list/p1.jpg" },
+  { id: 2, imgSrc: "../images/list/p2.jpg" },
+  { id: 3, imgSrc: "../images/list/p3.jpg" },
+  { id: 4, imgSrc: "../images/list/p4.jpg" },
+  { id: 5, imgSrc: "../images/list/p5.jpg" },
+  { id: 6, imgSrc: "../images/list/p6.jpg" },
+  { id: 7, imgSrc: "../images/list/p7.jpg" },
+  { id: 8, imgSrc: "../images/list/p8.jpg" }
+];
 
+export const detailsCardData = [
+  {
+    icon:"fa far-"
+
+  },
+  {
+    icon:"",
+  },
+  {
+    icon:"",
+  },
+  {
+    icon:"",
+  },
+  {
+    icon:"",
+  }
+]

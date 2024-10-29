@@ -1,13 +1,22 @@
-import { GiPathDistance } from "react-icons/gi";
+import React from 'react'
+import { detailsCardData,list } from '../data/Data'
+import ListingDetails from './ListingDetails'
 
-export const listdetailsdata= [
-    {
-      icons: <GiPathDistance/>,
-      location: "Family House",
-      distance :"2.8 km",
-      price :"MK 25,000",
-      security:" not available",
-    }
-]
-/*created an object for the listing details */
+
+export default function DetailsCard() {
+  return (
+    <div>
+      {detailsCardData.map((icon,index)=> {
+        return (
+          <ListingDetails
+            icons={icon.icon}
+            index={index}
+          />
+        )
+      })}
+      
+    </div>
+  )
+}
+
     

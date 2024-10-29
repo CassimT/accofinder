@@ -1,28 +1,20 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 function Signup() {
-  const [formData, setFormData] = useState({
-    name: "",
-    username: "",
-    email: "",
-    password: "",
-    role: "Student",
-    agreeToTerms: false,
-  });
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
-  //   function for handling a change of value
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
-  };
+  const password = watch("password");
 
-  //   function for handling submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
+  const confirmPassword = watch("confirmPassword");
+
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
   return (
@@ -32,7 +24,7 @@ function Signup() {
           Sign Up to AccoFinder
         </h1>
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col items-center justify-center"
         >
           <div className="flex flex-row gap-x-3 mb-4">
@@ -40,37 +32,47 @@ function Signup() {
               Name
               <input
                 type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                required
+                name="Name"
+                placeholder="name"
+                className="px-1 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                {...register("Name", { required: true })}
               />
+              {errors.Name?.type === "required" && (
+                <p className="text-red-600 text-sm">name is required</p>
+              )}
+            </label>
+            <label className="flex flex-col text-black font-semibold mb-2">
+              Username
+              <input
+                type="text"
+                name="username"
+                placeholder="username"
+                className="px-1 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                {...register("username", { required: true })}
+              />
+              {errors.username?.type === "required" && (
+                <p className="text-red-600 text-sm">username is required</p>
+              )}
             </label>
           </div>
-          <label className="flex flex-col text-black font-semibold mb-2">
-            Username
-            <input
-              type="text"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              className="px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
-          </label>
-
           <div className="mb-4">
             <label className="block text-black font-semibold mb-2">Email</label>
             <input
               type="email"
               placeholder="email"
               name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
+              className="px-10 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg"
+              {...register("email", {
+                required: true,
+                pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i,
+              })}
             />
+            {errors.email?.type === "required" && (
+              <p className="text-red- text-sm">email is required</p>
+            )}
+            {errors.email?.type === "pattern" && (
+              <p className="text-red-600 text-sm">email pattern is wrong</p>
+            )}
           </div>
           <div className="mb-4">
             <label className="block text-black font-semibold mb-2">
@@ -79,21 +81,47 @@ function Signup() {
             <input
               type="password"
               name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="px-10 py-2 border rounded-lg "
+              className="px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="password"
-              required
+              {...register("password", {
+                required: true,
+                minLength: 8,
+                maxLength: 20,
+              })}
             />
+            {errors.password?.type === "minLength" && (
+              <p className="text-red-600 text-sm">
+                password must be atleast 8 characters
+              </p>
+            )}
+            {errors.password?.type === "maxLength" && (
+              <p className="text-red-600 text-sm">
+                password must be less than 20 characters
+              </p>
+            )}
           </div>
           <div className="mb-4">
             <label className="block text-black font-semibold mb-2">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              name="confirmPassword"
+              className="px-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+              placeholder="confirm password"
+              {...register("confirmPassword", { required: true })}
+            />
+            {password !== confirmPassword && (
+              <p className="text-red-600 text-sm">password do not match</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <label className="block  text-black font-semibold mb-2">
               Sign up as:
               <select
                 name="role"
-                value={formData.role}
-                onChange={handleChange}
-                className="px-4 py-2 border gap-x-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="px-4 py-2 border ml-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                {...register("role", { required: "please select a role" })}
               >
                 <option value="Student">Student</option>
                 <option value="Landlord">Landlord</option>
@@ -105,8 +133,6 @@ function Signup() {
               <input
                 type="checkbox"
                 name="agreeToTerms"
-                checked={formData.agreeToTerms}
-                onChange={handleChange}
                 className="mr-2"
                 required
               />

@@ -1,6 +1,18 @@
 import React from "react";
+import {useForm} from "react-hook-form";
 
 const Sign = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const password = watch("password");
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 relative">
       <div className="bg-white p-10 rounded-lg shadow-md h-[75vh] w-1/3 ">
@@ -26,6 +38,7 @@ const Sign = () => {
         </div>
 
         {/* Username/Email Input */}
+        <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-5">
           <label
             htmlFor="email"
@@ -36,25 +49,50 @@ const Sign = () => {
           <input
             type="email"
             id="email"
-            className="mt-1 w-full px-3 py-2 border border-gray-400 rounded-lg sm:text-sm"
+            className="mt-1 w-full px-4 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg sm:text-sm"
             placeholder="Username or email"
+            {...register("email", {
+              required: true,
+              pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i,
+            })}
           />
+          {errors.email?.type === "required" && (
+            <p className="text-red-600 text-sm">email is required</p>
+          )}
+          {errors.email?.type === "pattern" && (
+            <p className="text-red-600 text-sm">email pattern is wrong</p>
+          )}
         </div>
 
         {/* Password Input */}
         <div className="mb-4">
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-black"
+            className="block text-sm font-semibold text-black"
           >
             Password
           </label>
           <input
             type="password"
             id="password"
-            className="mt-1 block w-full px-3 py-2 border border-gray-400  rounded-lg sm:text-sm"
+            className="mt-1 block w-full px-4 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-500  rounded-lg sm:text-sm"
             placeholder="password"
+            {...register("password", {
+              required: true,
+              minLength: 8,
+              maxLength: 20,
+            })}
           />
+          {errors.password?.type === "minLength" && (
+            <p className="text-red-600 text-sm">
+              password must be atleast 8 characters
+            </p>
+          )}
+          {errors.password?.type === "maxLength" && (
+            <p className="text-red-600 text-sm">
+              password must be less than 20 characters
+            </p>
+          )}
           <a
             href="#"
             className="text-xs text-blue-500 hover:underline float-right mt-1 mb-3"
@@ -75,6 +113,7 @@ const Sign = () => {
             Sign up
           </a>
         </p>
+        </form>
       </div>
     </div>
   );

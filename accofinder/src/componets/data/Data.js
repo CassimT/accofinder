@@ -156,7 +156,8 @@ export const footer = [
  export const filter = [
   {text: "Single"},{text: "Double"},{text: "self Contained"},{text: "near compus"}
  ]
- export const tileData = [
+
+/* export const tileData = [
   { id: 1, imgSrc: "../images/list/p1.jpg" },
   { id: 2, imgSrc: "../images/list/p2.jpg" },
   { id: 3, imgSrc: "../images/list/p3.jpg" },
@@ -165,11 +166,11 @@ export const footer = [
   { id: 6, imgSrc: "../images/list/p6.jpg" },
   { id: 7, imgSrc: "../images/list/p7.jpg" },
   { id: 8, imgSrc: "../images/list/p8.jpg" }
-];
+]; */
 
 export const detailsCardData = [
   {
-    icon:"fa far-"
+    icon:"fa far"
 
   },
   {

@@ -1,3 +1,5 @@
+
+
 export const nav = [
   {
     text: "home",
@@ -157,32 +159,32 @@ export const footer = [
   {text: "Single"},{text: "Double"},{text: "self Contained"},{text: "near compus"}
  ]
 
-/* export const tileData = [
-  { id: 1, imgSrc: "../images/list/p1.jpg" },
-  { id: 2, imgSrc: "../images/list/p2.jpg" },
-  { id: 3, imgSrc: "../images/list/p3.jpg" },
-  { id: 4, imgSrc: "../images/list/p4.jpg" },
-  { id: 5, imgSrc: "../images/list/p5.jpg" },
-  { id: 6, imgSrc: "../images/list/p6.jpg" },
-  { id: 7, imgSrc: "../images/list/p7.jpg" },
-  { id: 8, imgSrc: "../images/list/p8.jpg" }
-]; */
+
 
 export const detailsCardData = [
   {
-    icon:"fa far"
+    icons:"card 1",
+    description:"description for this card"
+},
+{
+    icons:"card 2",
+    description:"description for this card"
+},
+{
+    icons:"card 3",
+    description:"description for this card"
+},
+{
+    icons:"card 4",
+    description:"description for this card"
+},
+{
+    icons:"card 5",
+    description:"description for this card"
+},
+{
+    icons:"card 6",
+    description:"description for this card"
+},
 
-  },
-  {
-    icon:"",
-  },
-  {
-    icon:"",
-  },
-  {
-    icon:"",
-  },
-  {
-    icon:"",
-  }
 ]

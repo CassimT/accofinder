@@ -1,8 +1,8 @@
 import React from 'react'
-import ListDetails from '../details/ListingDetails'
+import DetailsCard from '../details/DetailsCard'
 export default function Dashboard() {
   return (
    
-    <ListDetails/>
+    <DetailsCard/>
   )
 }

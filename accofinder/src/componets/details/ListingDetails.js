@@ -1,14 +1,16 @@
 
 import React from 'react';
 
-function ListingDetails({ icons, location , distance,price,security }) {
+function ListingDetails({icons, description}) {
   return (
-    <div className="bg-blue-900 h-72 w-60 rounded-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 font-roboto">
-      < icons />
-      <h1 className="text-white text-lg font-roboto"></h1>
-      <p className="text-white text-sm">  </p>
-      <div className="flex-1 overflow-y-auto"></div>
-    </div>
+    <div className="bg-blue-500 shadow-md rounded-lg p-4 max-w-xs max-h-96">
+      <h2 className='text-xl font-bold text-gray-800 mb-2'>
+        {icons}
+
+      </h2>
+      <p className='text-gray-600'>{description}</p>
+
+     </div>
   );
 }
 

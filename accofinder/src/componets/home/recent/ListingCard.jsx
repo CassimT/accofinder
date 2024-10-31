@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState ,useMemo} from "react";
 import ReactPaginate from "react-paginate";
 import { list } from "../../data/Data"; 
 import { useNavigate } from "react-router-dom";
 
-const ListingCard = () => {
+const ListingCard = ({lists = []}) => {
   const navigate = useNavigate()
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 8; 
+  const itemsPerPage = 10; 
   // Calculate total pages
-  const pageCount = Math.ceil(list.length / itemsPerPage);
+  const fullList = useMemo(() => {
+    return lists.length > 0 ? lists : list;
+  }, [lists]);
+  const pageCount = Math.ceil(fullList.length / itemsPerPage);
 
   // Get current items based on page
-  const displayedItems = list.slice(
+  const displayedItems = fullList.slice(
     currentPage * itemsPerPage,
     (currentPage + 1) * itemsPerPage
   );
@@ -60,7 +63,7 @@ const ListingCard = () => {
                   <span className='text-gray-600 text-sm'>{type}</span>
                   <button className='bg-gray-600 text-white py-1 px-3 rounded opacity-30 mt-1 text-sm'>{price}</button>
                 </div>
-                <button className='bg-black text-white py-1 px-4 rounded-full mt-auto text-sm'
+                <button className='bg-black text-white py-1 px-4 rounded-full mt-auto text-sm  transition duration-500 hover:scale-95'
                   onClick={goToDetails}
                 >
                   More
@@ -82,9 +85,9 @@ const ListingCard = () => {
         containerClassName={'flex justify-center space-x-2 mt-4'}
         activeClassName={'bg-blue-500 text-white'}
         pageClassName={'py-2 px-3 border rounded-md'}
-        previousClassName={'py-2 px-3 border rounded-md'}
-        nextClassName={'py-2 px-3 border rounded-md'}
-        disabledClassName={'text-gray-300 cursor-not-allowed'}
+        previousClassName={'py-2 px-3 border rounded-md'}  
+        nextClassName={'py-2 px-3 border rounded-md  transition duration-500 hover:scale-95'}
+        disabledClassName={'text-gray-300 cursor-not-allowed  transition duration-500 hover:scale-95'}
       />
     </div>
   );

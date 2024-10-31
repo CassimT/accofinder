@@ -1,25 +1,23 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect, useContext } from "react";
+import { SearchContext } from "../utils/SearchContext";
 import { BiHome } from "react-icons/bi";
 import { FaSearch } from "react-icons/fa";
 import Button from "./Button";
 import { nav } from "../data/Data";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate,useLocation } from "react-router-dom"; 
 import ProfileButton from "./ProfileButton";
 import {Input} from 'antd'; 
 import { list } from "../data/Data";
+import { ImOffice } from "react-icons/im";
 const {Search} = Input
+
 
 const NavBar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(""); 
+  const [searchTerm, setSearchTerm] = useContext(SearchContext); 
   const navigate = useNavigate(); 
-  const [records, setRecord] = useState(list);
-  //handleling searchand filter
- /* const handleFilter = (value) => {
-    const searchResult = HouseListData.filter(item => item.label === (searchTerm))
-    return searchResult;
-  };
-*/
+  const location = useLocation()
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -57,17 +55,19 @@ const NavBar = () => {
     if (event.key === "Enter") {
       // Construct the path with the search query
       const path = `/Searching?query=${encodeURIComponent(searchTerm)}`;
-      // Navigate to the path and pass the searchTerm through state
-      navigate(path, { state: { term: searchTerm } });
+      if(location.pathname + location.search != path) {
+        navigate(path, { state: { term: searchTerm } });
+      }
+     
     }
     
   };
   //handling the seach
   const handleSeach = (event) => { 
-      // Construct the path with the search query
       const path = `/Searching?query=${encodeURIComponent(searchTerm)}`;
-      // Navigate to the path and pass the searchTerm through state
-      navigate(path, { state: { term: searchTerm } }); 
+      if(location.pathname + location.search != path) {
+        navigate(path, { state: { term: searchTerm } });
+      }   
   };
 
 
@@ -165,12 +165,12 @@ const NavBar = () => {
             open ? "":
             <div className="relative flex items-center mt-4 m-10">
             <Search
-            placeholder="Enter search term"
-            value={searchTerm}
-            onChange={handleSearchInputChange}
-            onSearch={handleSeach} 
-            onPressEnter={handleKeyPress} 
-            enterButton
+              placeholder="Enter search term"
+              value={searchTerm}
+              onChange={handleSearchInputChange}
+              onSearch={handleSeach} 
+              onPressEnter={handleKeyPress} 
+              enterButton
             />
           </div>
           }

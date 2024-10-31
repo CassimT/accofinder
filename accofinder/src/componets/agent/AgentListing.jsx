@@ -22,7 +22,7 @@ function AgentListing() {
       title: 'Name',
       dataIndex: 'name',
       key: 'hostelName',
-      sorter: (a, b) => a.hostelName.localeCompare(b.hostelName),
+      sorter: (a, b) => a.name.localeCompare(b.name),
       render: (text) => <span className="text-sm">{text}</span>, // Smaller text
     },
     {

@@ -10,7 +10,6 @@ function App() {
   return (
     <BrowserRouter> 
       <div className="font-roboto">
-        <NavBar />
         <MainLayout />
         <Footer />
       </div>

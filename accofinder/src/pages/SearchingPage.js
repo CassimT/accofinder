@@ -12,7 +12,6 @@ export default function SearchingPage() {
   const searchTermFromQuery = queryParams.get("query");
   return (
     <div className='flex justify-center items-center flex-col min-h-screen'> 
-        <SearchBar/>
         <Heading
             title={searchTermFromQuery}
             subtitle= {searchTermFromQuery ? `Results for ${searchTermFromQuery}` : ""}          

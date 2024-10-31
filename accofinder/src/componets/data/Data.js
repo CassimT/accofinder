@@ -43,7 +43,7 @@ export const list = [
     cover: "../images/list/p-1.jpg",
     name: "Incah",
     location: "210 Zirak Road, Canada",
-    distance: 0.9,
+    distance:  0.9,
     status: "available",
     price: "MK200,700",
     type: "Single Room",
@@ -126,6 +126,7 @@ export const list = [
     type: "Single Room",
     rating: 2.6
   },
+  
 ]
 
 export const footer = [

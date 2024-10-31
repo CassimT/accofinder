@@ -1,22 +1,39 @@
-import React from "react";
-import { list } from "../../data/Data";
-import { useNavigate} from "react-router-dom";
+import React, { useState } from "react";
+import ReactPaginate from "react-paginate";
+import { list } from "../../data/Data"; 
+import { useNavigate } from "react-router-dom";
 
 const ListingCard = () => {
-  const navigate = useNavigate();
-  const goToDetails = ()=> {
-    navigate("/details");
-  }
+  const navigate = useNavigate()
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 8; 
+  // Calculate total pages
+  const pageCount = Math.ceil(list.length / itemsPerPage);
+
+  // Get current items based on page
+  const displayedItems = list.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
+  // Handle page change
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+  //handle go to details
+  const goToDetails = () => {
+    navigate("/details")
+  };
 
   return (
-    <>
-      <div className='max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6'> {/* Responsive grid */}
-        {list.map((val, index) => {
+    <div className='max-w-7xl mx-auto mt-6'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4'>
+        {displayedItems.map((val, index) => {
           const { cover, status, name, price, type, rating, distance } = val;
           return (
-            <div className='bg-white shadow-md rounded-lg' key={index} style={{ maxWidth: '300px' }}> {/* Adjust card width */}
+            <div className='bg-white shadow-md rounded-lg' key={index} style={{ maxWidth: '300px' }}>
               <div className='img'>
-                <img src={cover} alt='' className='w-full h-40 object-cover rounded-t-lg' /> {/* Adjust height */}
+                <img src={cover} alt='' className='w-full h-40 object-cover rounded-t-lg' />
               </div>
               <div className='p-4'>
                 <div className='flex justify-between items-center mb-3'>
@@ -28,32 +45,49 @@ const ListingCard = () => {
                     {status}
                   </span>
                   <div className='flex items-center space-x-1'>
-                    <i className='fa fa-star text-yellow-500 text-sm'></i> {/* Adjust icon size */}
-                    <span className='text-gray-600 text-sm'>{rating}</span> {/* Adjust font size */}
+                    <i className='fa fa-star text-yellow-500 text-sm'></i>
+                    <span className='text-gray-600 text-sm'>{rating}</span>
                   </div>
                 </div>
-                <h4 className='text-base font-medium text-gray-800'>{name}</h4> {/* Adjust font size */}
+                <h4 className='text-base font-medium text-gray-800'>{name}</h4>
                 <p className='text-gray-500 text-sm flex items-center mt-1'>
                   <i className='fa fa-route mr-1'></i> {distance}Km
-                  <label className='text-gray-500 ml-1'>from Campus</label> {/* Adjust spacing */}
+                  <label className='text-gray-500 ml-1'>from Campus</label>
                 </p>
               </div>
               <div className='border-t border-gray-200 p-3 flex justify-between items-center'>
                 <div className="flex flex-col">
-                  <span className='text-gray-600 text-sm'>{type}</span> {/* Adjust font size */}
-                  <button className='bg-gray-600 text-white py-1 px-3 rounded opacity-30 mt-1 text-sm'>{price}</button> {/* Adjust button size */}
+                  <span className='text-gray-600 text-sm'>{type}</span>
+                  <button className='bg-gray-600 text-white py-1 px-3 rounded opacity-30 mt-1 text-sm'>{price}</button>
                 </div>
                 <button className='bg-black text-white py-1 px-4 rounded-full mt-auto text-sm'
                   onClick={goToDetails}
-                    
-                >More</button> {/* Adjust button size */}
+                >
+                  More
+                </button>
               </div>
             </div>
           );
         })}
       </div>
-    </>
+        
+      <ReactPaginate
+        previousLabel={'< Previous'}
+        nextLabel={'Next >'}
+        breakLabel={'...'}
+        pageCount={pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageChange}
+        containerClassName={'flex justify-center space-x-2 mt-4'}
+        activeClassName={'bg-blue-500 text-white'}
+        pageClassName={'py-2 px-3 border rounded-md'}
+        previousClassName={'py-2 px-3 border rounded-md'}
+        nextClassName={'py-2 px-3 border rounded-md'}
+        disabledClassName={'text-gray-300 cursor-not-allowed'}
+      />
+    </div>
   );
-}
+};
 
 export default ListingCard;

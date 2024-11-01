@@ -1,13 +1,13 @@
 import React from 'react';
 
-const EmailLogin = () => {
+const Sign = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 relative">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-3xl font-bold text-center mb-6">Sign in to AccoFinder</h1>
 
         {/* Google Sign-In Button */}
-        <button className="w-full bg-blue-100 hover:bg-blue-200 text-black font-semibold py-2 px-4 rounded-full flex items-center justify-center mb-4">
+        <button className="w-full bg-blue-100 hover:bg-blue-300 text-black font-semibold py-2 px-4 rounded-full flex items-center justify-center mb-4">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
             alt="Google logo"
@@ -87,4 +87,4 @@ const EmailLogin = () => {
   );
 };
 
-export default EmailLogin;
+export default Sign;

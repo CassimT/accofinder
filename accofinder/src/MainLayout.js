@@ -18,7 +18,7 @@ import PrivateRouters from "./componets/utils/PrivateRouters";
 
 const MainLayout = () => {
   const location = useLocation();
-  const noNavBarRoutes = ['/signin', '/signup', '/payment', '/details','/agents','agents/add'];
+  const noNavBarRoutes = ['/signin', '/signup', '/payment', '/details','/agents'];
   const hideNavBar = noNavBarRoutes.some(route => location.pathname.startsWith(route));
 
   return (

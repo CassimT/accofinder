@@ -2,9 +2,6 @@ import React from "react";
 import {useForm} from "react-hook-form";
 
 const Signin = () => {
-<<<<<<< HEAD
-  const navigate = useNavigate();
-=======
   const {
     register,
     handleSubmit,
@@ -15,7 +12,6 @@ const Signin = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
->>>>>>> Validation
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 relative">

@@ -2,23 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 function Signup() {
-<<<<<<< HEAD
-  const [formData, setFormData] = useState({
-    name: "",
-    username: "",
-    email: "",
-    password: "",
-    role: "Student",
-    agreeToTerms: false,
-  });
-=======
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
->>>>>>> Validation
 
   const password = watch("password");
 

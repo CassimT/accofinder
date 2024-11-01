@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import DetailsCard from '../details/DetailsCard'
-=======
 import React, { useEffect, useState } from 'react';
 import {
   EyeOutlined, 
@@ -13,7 +9,6 @@ import {
 import { Space } from 'antd';
 import DashboardCard from './DashboardCard';
 
->>>>>>> 8bdeaa16f0937d9161a9ae05d20854553a5f5ddf
 export default function Dashboard() {
    // Initial state based on window size
   const [isVertical, setIsVertical] = useState(window.innerWidth < 768);
@@ -92,5 +87,5 @@ export default function Dashboard() {
       </Space>
     </div>
   );
->>>>>>> 8bdeaa16f0937d9161a9ae05d20854553a5f5ddf
+
 }

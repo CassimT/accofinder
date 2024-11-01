@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useEffect, useContext } from "react";
+import { SearchContext } from "../utils/SearchContext";
 import { BiHome } from "react-icons/bi";
 import { FaSearch } from "react-icons/fa";
 import Button from "./Button";
 import { nav } from "../data/Data";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate,useLocation } from "react-router-dom"; 
+import ProfileButton from "./ProfileButton";
+import {Input} from 'antd'; 
+import { list } from "../data/Data";
+import { ImOffice } from "react-icons/im";
+const {Search} = Input
+
 
 const NavBar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(""); // State to hold search input
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [searchTerm, setSearchTerm] = useContext(SearchContext); 
+  const navigate = useNavigate(); 
+  const location = useLocation()
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -18,23 +26,53 @@ const NavBar = () => {
     setSearchTerm(event.target.value); // Update search term
   };
   const goToSingIn = ()=> {
-      navigate("/singin")
+      navigate("/signin")
   }
-  const goTologIn = ()=> {
-    navigate("/login")
-}
+  const goToSignUp = ()=> {
+    navigate("/signup")
+  }
+  const [open, setOpen] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 950) {
+        setOpen(false);
+      } else {
+        setOpen(true);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial check
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       // Construct the path with the search query
       const path = `/Searching?query=${encodeURIComponent(searchTerm)}`;
-      // Navigate to the path and pass the searchTerm through state
-      navigate(path, { state: { term: searchTerm } });
+      if(location.pathname + location.search != path) {
+        navigate(path, { state: { term: searchTerm } });
+      }
+     
     }
+    
+  };
+  //handling the seach
+  const handleSeach = (event) => { 
+      const path = `/Searching?query=${encodeURIComponent(searchTerm)}`;
+      if(location.pathname + location.search != path) {
+        navigate(path, { state: { term: searchTerm } });
+      }   
   };
 
+
   return (
+    <>    
     <header className="w-full bg-white shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-6 md:px-12">
         {/* Logo Section */}
@@ -47,7 +85,7 @@ const NavBar = () => {
         <nav className="hidden md:flex items-center gap-6 text-base font-medium flex-wrap">
           <ul className="flex gap-4 font-sans font-medium cursor-pointer">
             {nav.map((item) => (
-              <li key={item.text}>
+              <li key={item.text} className=" text-sm">
                 <a
                   href={item.path} // Use path from nav array
                   className="hover:text-orange-700 hover:underline duration-500 transition"
@@ -57,30 +95,40 @@ const NavBar = () => {
               </li>
             ))}
           </ul>
-          <div className="relative flex items-center">
-            <FaSearch className="absolute left-3 text-gray-400" aria-label="Search icon" />
-            <input
-              type="search"
-              placeholder="Search..."
-              value={searchTerm} // Bind input value to state
-              onChange={handleSearchInputChange} // Update state on change
-              onKeyPress={handleKeyPress} // Handle key press
-              className="border border-gray-200 rounded-3xl pl-10 pr-4 py-1 bg-gray-100 outline-none focus:ring-2 focus:ring-orange-400"
-            />
+          <div className="relative flex items-center justify-center">
+      
+          <Search
+            placeholder="Enter search term"
+            value={searchTerm}
+            onChange={handleSearchInputChange}
+            onSearch={handleSeach} 
+            onPressEnter={handleKeyPress} 
+            enterButton
+            //toggleling the searchBar hidden or not
+            className={`${
+              open ? "":"md:hidden"             
+              }`}
+          />
           </div>
-          <button className="px-3 py-1 transition duration-500 hover:scale-95 border border-black rounded-xl font-semibold text-sm">
+          <button 
+            onClick={goToSingIn}
+            className="px-3 py-1 transition duration-500 hover:scale-95 border border-black rounded-xl font-semibold text-sm">
             Log in
           </button>
-          <Button title="Sign up" />
+          <Button 
+            onClick = {goToSignUp}
+          title="Sign up" />
+          <ProfileButton/>
         </nav>
 
         {/* Mobile Menu (Hamburger Icon) */}
-        <div className="md:hidden">
+        <div className="md:hidden flex justify-between gap-4">        
           <button aria-label="Open mobile menu" onClick={toggleMobileMenu}>
             <svg className="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
           </button>
+          <ProfileButton/>
         </div>
       </div>
 
@@ -99,25 +147,35 @@ const NavBar = () => {
                 </a>
               </li>
             ))}
-            <div className="relative flex items-center mt-4">
-              <FaSearch className="absolute left-3 text-gray-400" aria-label="Search icon" />
-              <input
-                type="search"
-                placeholder="Search..."
-                value={searchTerm} // Bind input value to state
-                onChange={handleSearchInputChange} // Update state on change
-                onKeyPress={handleKeyPress} // Handle key press
-                className="border border-gray-200 rounded-3xl pl-10 pr-4 py-1 bg-gray-100 outline-none focus:ring-2 focus:ring-orange-400"
-              />
-            </div>
-            <button className="px-3 py-1 mt-2 transition duration-500 hover:scale-95 border border-black rounded-xl font-semibold text-sm">
+            
+            <button
+              onClick={goToSingIn}
+              className="px-3 py-1 mt-2 transition duration-500 hover:scale-95 border border-black rounded-xl font-semibold text-sm">
               Log in
             </button>
-            <Button title="Sign up" />
+            <Button 
+            onClick ={goToSignUp}
+            title="Sign up" />
+           
           </ul>
         </nav>
       )}
     </header>
+          {
+            open ? "":
+            <div className="relative flex items-center mt-4 m-10">
+            <Search
+              placeholder="Enter search term"
+              value={searchTerm}
+              onChange={handleSearchInputChange}
+              onSearch={handleSeach} 
+              onPressEnter={handleKeyPress} 
+              enterButton
+            />
+          </div>
+          }
+    </>
+
   );
 };
 

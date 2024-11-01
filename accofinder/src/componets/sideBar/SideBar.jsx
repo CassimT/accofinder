@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FiMenu } from 'react-icons/fi';
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { MdList } from "react-icons/md";
+import { IoArrowBackOutline } from "react-icons/io5"
 
 const SideBar = () => {
   const location = useLocation(); // Get the current location
@@ -43,12 +44,18 @@ const SideBar = () => {
       >
         <div className="m-3 text-xl text-gray-900 font-semibold">
           {/* Menu Button */}
-          <div className="py-3 flex justify-end">
-            <FiMenu
+          <div className="py-3 flex justify-end items-center">
+            {open ?  
+            <IoArrowBackOutline
+                size={26}
+                className="cursor-pointer"
+                onClick={() => setOpen(!open)}
+              />:
+              <FiMenu
               size={26}
-              className="cursor-pointer"
-              onClick={() => setOpen(!open)}
-            />
+              className="cursor-pointer text-[26px]"
+              onClick={() => setOpen(!open)} />
+               }
           </div>
         </div>
 

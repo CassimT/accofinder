@@ -10,7 +10,8 @@ export default function Filtering
             const {text} = val
            return (
             <div  key={index}>
-            <button className='bg-blue-100 text-black py-1 px-4 rounded-md mt-auto text-sm w-40 h-10'>
+            <button 
+            className="px-3 py-1 transition duration-500 hover:scale-95 border border-black rounded-xl font-semibold text-sm">
               {text}
             </button>
           </div>

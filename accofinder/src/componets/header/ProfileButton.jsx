@@ -37,8 +37,8 @@ function ProfileButton() {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-72 h-72 bg-gray-800 text-white rounded-lg shadow-lg z-10">
-          <div className="p-4 flex items-center justify-center space-x-4">
+        <div className="absolute right-0 mt-2 w-72 bg-gray-800 text-white rounded-lg shadow-lg z-10">
+          <div className="flex items-center justify-center space-x-4">
             {/**ProfileComponet */}
             <Profile/>
             

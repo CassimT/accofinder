@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {Routes, Route, useLocation  } from "react-router-dom";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fontsource/roboto'; // Default weight (400)
 import '@fontsource/roboto/400.css'; // Regular weight
@@ -12,19 +12,27 @@ import SingUpPage from "./pages/SingUpPage";
 import PaymentPage from "./pages/PaymentPage";
 import SearchingPage from "./pages/SearchingPage";
 import ProfilePage from "./pages/ProfilePage";
+import NavBar from "./componets/header/NavBar";
+import PrivateRouters from "./componets/utils/PrivateRouters";
 
 
 const MainLayout = () => {
+  const location = useLocation();
+  const noNavBarRoutes = ['/signin', '/signup', '/payment', '/details','/agents','agents/add'];
+  const hideNavBar = noNavBarRoutes.some(route => location.pathname.startsWith(route));
+
   return (
       <div>
+        {!hideNavBar && <NavBar />}
         <Routes>
-          <Route path="/" element={<HomPage />} />
-          
-          <Route path="/agents/*" element={<AgentPage />} />
+          <Route element = {<PrivateRouters/>}>
+            <Route path="/payment" element={<PaymentPage />} /> 
+            <Route path="/agents/*" element={<AgentPage />} />       
+          </Route>
+          <Route path="/" element={<HomPage />} />                
           <Route path="/details" element={<DetailsPage />} />
           <Route path="/signin" element={<SingInPage />} />
-          <Route path="/signup" element={<SingUpPage />} />
-          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/signup" element={<SingUpPage/>} />
           <Route path="/Searching" element={<SearchingPage />} />
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>

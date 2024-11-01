@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Table, Input, Button } from 'antd'; 
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons'; // Importing icons
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons'; 
 import { list } from '../data/Data';
 
 const { Search } = Input;
@@ -22,7 +22,7 @@ function AgentListing() {
       title: 'Name',
       dataIndex: 'name',
       key: 'hostelName',
-      sorter: (a, b) => a.hostelName.localeCompare(b.hostelName),
+      sorter: (a, b) => a.name.localeCompare(b.name),
       render: (text) => <span className="text-sm">{text}</span>, // Smaller text
     },
     {
@@ -45,15 +45,15 @@ function AgentListing() {
       render: (_, record) => (
         <div className="flex flex-col sm:flex-row gap-2"> {/* Stack buttons in a column on small screens */}
           <Button
-            icon={<EditOutlined />} // Add edit icon
+            icon={<EditOutlined />} 
             className="bg-blue-500 hover:bg-blue-600 text-white text-xs"
-            onClick={() => navigate(`/edit/${record.hostelName}`)} // Example edit navigation
+            onClick={() => navigate(`/edit/${record.name}`)} 
             size="small"
           >
             Edit
           </Button>
           <Button
-            icon={<DeleteOutlined />} // Add delete icon
+            icon={<DeleteOutlined />} 
             className="bg-red-500 hover:bg-red-600 text-white text-xs"
             onClick={() => {/* Delete action */}}
             size="small"
@@ -66,7 +66,7 @@ function AgentListing() {
   ];
 
   return (
-    <div className="flex flex-col justify-between w-full max-w-4xl mx-auto gap-3 p-4">
+    <div className="flex flex-col justify-center items-center w-full max-w-4xl mx-auto gap-3 p-4">
       <Search
         placeholder="Search"
         enterButton
@@ -76,10 +76,10 @@ function AgentListing() {
       <Table
         columns={columns}
         dataSource={records}
-        rowKey="name" // Ensure each row has a unique key
-        pagination={{ pageSize: 5 }} // Adjust page size for compactness
-        className="rounded-lg shadow-md"
-        size="small" // Use small size for the table
+        rowKey="name" 
+        pagination={{ pageSize: 4 }} 
+        className="rounded-lg shadow-md w-full"
+        size="small" //small size for the table
       />
     </div>
   );

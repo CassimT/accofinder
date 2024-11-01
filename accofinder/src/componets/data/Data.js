@@ -1,3 +1,5 @@
+
+
 export const nav = [
   {
     text: "home",
@@ -41,6 +43,10 @@ export const list = [
   {
     id: 1,
     cover: "../images/list/p-1.jpg",
+    imgSrc: "../images/list/p1.jpg" ,
+    kitchen:"../images/list/p5.jpg",
+    bathroom:"../imageslist/p3.jpg",
+    bedroom:"../imageslist/p14.jpg",
     name: "Incah",
     location: "210 Zirak Road, Canada",
     distance:  0.9,
@@ -48,6 +54,67 @@ export const list = [
     price: "MK200,700",
     type: "Single Room",
     rating: 2.6
+  },
+  {
+    id: 2,
+    cover: "../images/list/p-2.png",
+    hostelImages:{
+      imgSrc: "../images/list/p3.jpg" ,
+    kitchen:"../images/list/p6.jpg",
+    bathroom:"../imageslist/p3.jpg",
+    bedroom:"../imageslist/p14.jpg",
+    },
+    name: "Kondwani Hostel",
+    location: "5698 Zirak Road, NewYork",
+    distance: 3,
+    status: "not available",
+    price: "MK50,750",
+    type: "Shared Room",
+    rating: 4.5
+  },
+  {
+    id: 2,
+    cover: "../images/list/p-2.png",
+    name: "Kondwani Hostel",
+    location: "5698 Zirak Road, NewYork",
+    distance: 3,
+    status: "not available",
+    price: "MK50,750",
+    type: "Shared Room",
+    rating: 4.5
+  },
+  {
+    id: 2,
+    cover: "../images/list/p-2.png",
+    name: "Kondwani Hostel",
+    location: "5698 Zirak Road, NewYork",
+    distance: 3,
+    status: "not available",
+    price: "MK50,750",
+    type: "Shared Room",
+    rating: 4.5
+  },
+  {
+    id: 2,
+    cover: "../images/list/p-2.png",
+    name: "Kondwani Hostel",
+    location: "5698 Zirak Road, NewYork",
+    distance: 3,
+    status: "not available",
+    price: "MK50,750",
+    type: "Shared Room",
+    rating: 4.5
+  },
+  {
+    id: 2,
+    cover: "../images/list/p-2.png",
+    name: "Kondwani Hostel",
+    location: "5698 Zirak Road, NewYork",
+    distance: 3,
+    status: "not available",
+    price: "MK50,750",
+    type: "Shared Room",
+    rating: 4.5
   },
   {
     id: 2,
@@ -126,6 +193,7 @@ export const list = [
     type: "Single Room",
     rating: 2.6
   },
+ 
   {
     id: 5,
     cover: "../images/list/p-5.png",
@@ -191,3 +259,32 @@ export const footer = [
   {text: "Single Room"},{text: "Shared Room"},{text: "Self Contained"},{text: "Near compus"}
  ]
 
+
+
+export const detailsCardData = [
+  {
+    icons:"card 1",
+    description:"description for this card"
+},
+{
+    icons:"card 2",
+    description:"description for this card"
+},
+{
+    icons:"card 3",
+    description:"description for this card"
+},
+{
+    icons:"card 4",
+    description:"description for this card"
+},
+{
+    icons:"card 5",
+    description:"description for this card"
+},
+{
+    icons:"card 6",
+    description:"description for this card"
+},
+
+]

@@ -78,7 +78,7 @@ const NavBar = () => {
         {/* Logo Section */}
         <div className="flex items-center gap-2">
           <BiHome className="text-2xl text-orange-600" aria-label="Home icon" />
-          <h1 className="font-semibold text-xl">ACCOFINDER</h1>
+          <h1 className="font-semibold text-xl">ACCO<span className=" text-blue-700 text-sm">FINDER</span></h1>
         </div>
 
         {/* Navigation Menu for Desktop */}

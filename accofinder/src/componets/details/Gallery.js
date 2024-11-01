@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IoClose } from "react-icons/io5"; // import close icon from Material UI
-import { list } from '../data/Data';
+import { cardInfo } from '../data/Data';
 
 function Gallery() {
  
@@ -25,7 +25,7 @@ function Gallery() {
                 </div>
             </div>
             <div className="columns-1 sm:columns-2 md:columns-3 gap-3 px-3">
-                {list.map((item, index) => (
+                {cardInfo.map((item, index) => (
                     <div className="mb-3 transition-opacity duration-350 cursor-pointer hover:opacity-80" key={index} onClick={() => getImg(item.imgSrc)}>
                         <img src={item.imgSrc} alt={`Gallery item `} className="w-80" />
                     </div>

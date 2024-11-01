@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import DetailsCard from '../details/DetailsCard'
-=======
 import React, { useEffect, useState } from 'react';
 import {
   DollarCircleOutlined,
@@ -12,7 +8,6 @@ import {
 import { Space } from 'antd';
 import DashboardCard from './DashboardCard';
 
->>>>>>> 8bdeaa16f0937d9161a9ae05d20854553a5f5ddf
 export default function Dashboard() {
    // Initial state based on window size
   const [isVertical, setIsVertical] = useState(window.innerWidth < 768);
@@ -30,11 +25,6 @@ export default function Dashboard() {
   }, []);
 
   return (
-<<<<<<< HEAD
-   
-    <DetailsCard/>
-  )
-=======
     <div className="flex flex-col justify-center items-center w-full max-w-4xl mx-auto gap-3 p-4">
       <Space size={20} direction={isVertical ? "vertical" : "horizontal"} style={{ width: '80%', justifyContent: 'center' }}>
         <DashboardCard
@@ -96,5 +86,4 @@ export default function Dashboard() {
       </Space>
     </div>
   );
->>>>>>> 8bdeaa16f0937d9161a9ae05d20854553a5f5ddf
 }

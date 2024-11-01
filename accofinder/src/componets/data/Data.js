@@ -43,7 +43,7 @@ export const list = [
     cover: "../images/list/p-1.jpg",
     name: "Incah",
     location: "210 Zirak Road, Canada",
-    distance: 0.9,
+    distance:  0.9,
     status: "available",
     price: "MK200,700",
     type: "Single Room",
@@ -57,7 +57,7 @@ export const list = [
     distance: 3,
     status: "not available",
     price: "MK50,750",
-    type: "Double Room",
+    type: "Shared Room",
     rating: 4.5
   },
   {
@@ -89,7 +89,7 @@ export const list = [
     location: "210 Montreal Road, Canada",
     status: "not available",
     price: "MK260,850",
-    type: "Double Room",
+    type: "Shared Room",
     distance: 0.7,
     rating: 4.1
   },
@@ -111,7 +111,7 @@ export const list = [
     location: "210 Montreal Road, Canada",
     status: "not available",
     price: "MK260,850",
-    type: "Double Room",
+    type: "Shared Room",
     distance: 0.7,
     rating: 4.2
   },
@@ -126,6 +126,51 @@ export const list = [
     type: "Single Room",
     rating: 2.6
   },
+  {
+    id: 5,
+    cover: "../images/list/p-5.png",
+    name: "Realty Hostel",
+    location: "210 Montreal Road, Canada",
+    status: "not available",
+    price: "MK260,850",
+    type: "Shared Room",
+    distance: 0.7,
+    rating: 4.1
+  },
+  {
+    id: 6,
+    cover: "../images/list/p-6.png",
+    name: "Zonse ndi Thawi",
+    location: "210 Zirak Road, Canada",
+    distance: 2.5,
+    status: "not available",
+    price: "MK50,742",
+    type: "Single Room",
+    rating: 2.6
+  },
+  {
+    id: 7,
+    cover: "../images/list/p-8.jpg",
+    name: "Realty Hostel",
+    location: "210 Montreal Road, Canada",
+    status: "not available",
+    price: "MK260,850",
+    type: "Shared Room",
+    distance: 0.7,
+    rating: 4.2
+  },
+  {
+    id: 8,
+    cover: "../images/list/p-9.jpg",
+    name: "Zonse ndi Thawi",
+    location: "210 Zirak Road, Canada",
+    distance: 2.5,
+    status: "not available",
+    price: "MK50,742",
+    type: "Single Room",
+    rating: 2.6
+  },
+  
 ]
 
 export const footer = [
@@ -143,6 +188,6 @@ export const footer = [
   },
 ]
  export const filter = [
-  {text: "Single"},{text: "Double"},{text: "self Contained"},{text: "near compus"}
+  {text: "Single Room"},{text: "Shared Room"},{text: "Self Contained"},{text: "Near compus"}
  ]
 

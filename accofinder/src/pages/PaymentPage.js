@@ -1,10 +1,10 @@
 import React from 'react'
-import Payments from "../componets/payment/Payments";
+import MobilePaymentForm from '../componets/payment/MobilePaymentForm'
 
 export default function PaymentPage() {
   return (
     <div>
-      <Payments/>
+      <MobilePaymentForm/>
     </div>
   )
 }

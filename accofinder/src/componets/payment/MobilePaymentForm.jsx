@@ -53,7 +53,8 @@ const MobilePaymentForm = () =>{
               <input
                 type="text"
                 name="amount"
-                {...register("amount", { required: true })}
+                readOnly="true"
+                {...register("amount", { required: true,})}
                 placeholder="MK0.00"
                 className="py-2 px-8 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg border-2 border-gray-200 bg-gray-100"
               />

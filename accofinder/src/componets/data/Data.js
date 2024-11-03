@@ -57,13 +57,7 @@ export const list = [
   },
   {
     id: 2,
-    cover: "../images/list/p-2.png",
-    hostelImages:{
-      imgSrc: "../images/list/p3.jpg" ,
-    kitchen:"../images/list/p6.jpg",
-    bathroom:"../imageslist/p3.jpg",
-    bedroom:"../imageslist/p14.jpg",
-    },
+    cover: "../images/list/p-2.png",    
     name: "Kondwani Hostel",
     location: "5698 Zirak Road, NewYork",
     distance: 3,
@@ -287,4 +281,13 @@ export const detailsCardData = [
     description:"description for this card"
 },
 
+]
+export const cardInfo = [
+{imgSrc: "../images/list/p3.jpg"},
+{imgSrc:"../images/list/p7.jpg"},
+{imgSrc:"../images/list/p16.jpg"},
+{imgSrc:"../images/list/p15.jpg"},
+{imgSrc:"../images/list/p18.jpg"},
+{imgSrc:"../images/list/p19.jpg"},
+{imgSrc:"../images/list/p9.jpg"},
 ]

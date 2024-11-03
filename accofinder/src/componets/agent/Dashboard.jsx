@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
-  DollarCircleOutlined,
-  ShoppingCartOutlined,
-  ShoppingOutlined,
+  EyeOutlined, 
+  BookOutlined,
+   ProfileOutlined, 
   UserOutlined,
+  DollarCircleOutlined
 } from "@ant-design/icons";
 import { Space } from 'antd';
 import DashboardCard from './DashboardCard';
@@ -25,11 +26,11 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center w-full max-w-4xl mx-auto gap-3 p-4">
+    <div className="flex flex-col justify-center items-center max-w-full p-4">
       <Space size={20} direction={isVertical ? "vertical" : "horizontal"} style={{ width: '80%', justifyContent: 'center' }}>
         <DashboardCard
           icon={
-            <ShoppingCartOutlined
+            <EyeOutlined
               style={{
                 color: "green",
                 backgroundColor: "rgba(0,255,0,0.25)",
@@ -39,11 +40,11 @@ export default function Dashboard() {
               }}
             />
           }
-          title={"Orders"}
+          title={"Viewers"}
         />
         <DashboardCard
           icon={
-            <ShoppingOutlined
+            <ProfileOutlined
               style={{
                 color: "blue",
                 backgroundColor: "rgba(0,0,255,0.25)",
@@ -53,11 +54,11 @@ export default function Dashboard() {
               }}
             />
           }
-          title={"Inventory"}
+          title={"Total Posted"}
         />
         <DashboardCard
           icon={
-            <UserOutlined
+            <BookOutlined
               style={{
                 color: "purple",
                 backgroundColor: "rgba(0,255,255,0.25)",
@@ -67,7 +68,7 @@ export default function Dashboard() {
               }}
             />
           }
-          title={"Customer"}
+          title={"Booked"}
         />
         <DashboardCard
           icon={

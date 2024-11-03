@@ -73,6 +73,61 @@ export const list = [
     rating: 4.5
   },
   {
+    id: 2,
+    cover: "../images/list/p-2.png",
+    name: "Kondwani Hostel",
+    location: "5698 Zirak Road, NewYork",
+    distance: 3,
+    status: "not available",
+    price: "MK50,750",
+    type: "Shared Room",
+    rating: 4.5
+  },
+  {
+    id: 2,
+    cover: "../images/list/p-2.png",
+    name: "Kondwani Hostel",
+    location: "5698 Zirak Road, NewYork",
+    distance: 3,
+    status: "not available",
+    price: "MK50,750",
+    type: "Shared Room",
+    rating: 4.5
+  },
+  {
+    id: 2,
+    cover: "../images/list/p-2.png",
+    name: "Kondwani Hostel",
+    location: "5698 Zirak Road, NewYork",
+    distance: 3,
+    status: "not available",
+    price: "MK50,750",
+    type: "Shared Room",
+    rating: 4.5
+  },
+  {
+    id: 2,
+    cover: "../images/list/p-2.png",
+    name: "Kondwani Hostel",
+    location: "5698 Zirak Road, NewYork",
+    distance: 3,
+    status: "not available",
+    price: "MK50,750",
+    type: "Shared Room",
+    rating: 4.5
+  },
+  {
+    id: 2,
+    cover: "../images/list/p-2.png",
+    name: "Kondwani Hostel",
+    location: "5698 Zirak Road, NewYork",
+    distance: 3,
+    status: "not available",
+    price: "MK50,750",
+    type: "Shared Room",
+    rating: 4.5
+  },
+  {
     id: 3,
     cover: "../images/list/p-7.png",
     name: "Fransis Hostel",
@@ -138,6 +193,7 @@ export const list = [
     type: "Single Room",
     rating: 2.6
   },
+ 
   {
     id: 5,
     cover: "../images/list/p-5.png",

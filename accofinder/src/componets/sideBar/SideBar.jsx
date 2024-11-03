@@ -39,7 +39,7 @@ const SideBar = () => {
     <section className="flex gap-6">
       <div
         className={`bg-gray-200 min-h-screen ${
-          open ? "w-60" : "w-16"
+          open ? "w-64" : " w-20"
         } duration-500 text-gray-900 px-4`}
       >
         <div className="m-3 text-xl text-gray-900 font-semibold">
@@ -50,9 +50,23 @@ const SideBar = () => {
                 size={26}
                 className="cursor-pointer"
                 onClick={() => setOpen(!open)}
+                style={{
+                  color: "green",
+                  backgroundColor: "rgba(0,255,0,0.25)",
+                  borderRadius: 20,
+                  fontSize: 26,
+                  padding: 8,
+                }}
               />:
               <FiMenu
               size={26}
+              style={{
+                color: "green",
+                backgroundColor: "rgba(0,255,0,0.25)",
+                borderRadius: 20,
+                fontSize: 26,
+                padding: 8,
+              }}
               className="cursor-pointer text-[26px]"
               onClick={() => setOpen(!open)} />
                }

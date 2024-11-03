@@ -41,7 +41,7 @@ export default function DetailsCard() {
   ]
 
   return (
-    <div className='min-h-screen flex items-center justify-center'>
+    <div className='min-h-screen flex items-center justify-center p-4'>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-12'>
             {CardData.map((card,index)=> (
                 <ListingDetails key={index} icons={card.icons}

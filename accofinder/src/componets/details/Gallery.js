@@ -24,7 +24,7 @@ function Gallery() {
                     />
                 </div>
             </div>
-            <div className="columns-1 sm:columns-2 md:columns-3 gap-3 px-3">
+            <div className="grid-flow-col-dense columns-1 sm:columns-2 md:columns-3 gap-3 px-3">
                 {cardInfo.map((item, index) => (
                     <div className="mb-3 transition-opacity duration-350 cursor-pointer hover:opacity-80" key={index} onClick={() => getImg(item.imgSrc)}>
                         <img src={item.imgSrc} alt={`Gallery item `} className="w-80" />

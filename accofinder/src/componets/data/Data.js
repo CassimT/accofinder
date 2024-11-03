@@ -187,10 +187,7 @@ export const list = [
     type: "Single Room",
     rating: 2.6
   },
-<<<<<<< HEAD
-=======
  
->>>>>>> b61b147afe7f1b07525bd3803824b3ec988fcacc
   {
     id: 5,
     cover: "../images/list/p-5.png",

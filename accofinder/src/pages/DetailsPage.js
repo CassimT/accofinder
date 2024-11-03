@@ -4,14 +4,9 @@ import DetailsCard from '../componets/details/DetailsCard'
 
 export default function DetailsPage() {
   return (
-<<<<<<< HEAD
-    <div className='flex bg-zinc-200 justify-center items-center flex-col min-h-screen w-screen'>
-      <h1 className='text-amber-600 text-center font-roboto font-bold text-3xl pb-4 pt-4 '>More Details </h1>
-=======
     <div className='flex justify-center items-center flex-col min-h-screen w-screen'>
       <Gallery/>
       <DetailsCard/>
->>>>>>> b61b147afe7f1b07525bd3803824b3ec988fcacc
 
     </div>
   )

@@ -26,11 +26,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-<<<<<<< HEAD
-    <div className="flex flex-col justify-center items-center w-full max-w-4xl mx-auto gap-3 p-4">
-=======
     <div className="flex flex-col justify-center items-center max-w-full p-4">
->>>>>>> b61b147afe7f1b07525bd3803824b3ec988fcacc
       <Space size={20} direction={isVertical ? "vertical" : "horizontal"} style={{ width: '80%', justifyContent: 'center' }}>
         <DashboardCard
           icon={
@@ -91,8 +87,4 @@ export default function Dashboard() {
       </Space>
     </div>
   );
-<<<<<<< HEAD
-=======
-
->>>>>>> b61b147afe7f1b07525bd3803824b3ec988fcacc
 }

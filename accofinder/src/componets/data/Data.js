@@ -138,9 +138,6 @@ export const list = [
     type: "Single Room",
     rating: 2.6
   },
-<<<<<<< HEAD
- 
-=======
   {
     id: 5,
     cover: "../images/list/p-5.png",
@@ -186,7 +183,6 @@ export const list = [
     rating: 2.6
   },
   
->>>>>>> 8bdeaa16f0937d9161a9ae05d20854553a5f5ddf
 ]
 
 export const footer = [

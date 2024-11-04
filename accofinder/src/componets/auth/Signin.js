@@ -1,4 +1,3 @@
-// HomeLogin.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,7 +5,7 @@ const Signin = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-3xl font-bold text-center mb-6">Sign in to AccoFinder</h1>
 
@@ -24,7 +23,7 @@ const Signin = () => {
         {/* Email Sign-In Button */}
         <button
           className="w-full bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-full mb-4"
-          onClick={() => navigate('/signin-with-email')}  // Redirect to email sign-in page
+          onClick={() => navigate('/signin-with-email')} // Redirect to email sign-in page
         >
           Continue with Email
         </button>

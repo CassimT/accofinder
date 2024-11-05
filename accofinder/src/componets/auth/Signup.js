@@ -18,7 +18,7 @@ function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center  bg-gray-100 relative">
+  
       <div className="absolute h-[94vh] w-[40%] bg-white shadow-md rounded-lg">
         <h1 className="text-xl font-bold text-center m-5">
           Sign Up to AccoFinder
@@ -165,7 +165,6 @@ function Signup() {
           </p>
         </form>
       </div>
-    </div>
   );
 }
 

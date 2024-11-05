@@ -20,10 +20,9 @@ const Profile = () => {
             </span>
           </div>
         </div>
-
+        
         <div className="mt-20">
-          <h2 className="text-xl font-bold">Abram Prosser</h2>
-          <p className="text-gray-600">HelgaR.Kovach@example.com</p>
+          <p2 className="text-gray-600">HelgaR.Kovach@example.com</p2>
         </div>
 
         <div className="mt-6 mb-8">

@@ -22,6 +22,7 @@ const Profile = () => {
         </div>
         
         <div className="mt-20">
+        <h2 className="text-xl font-bold">Abram Prosser</h2>
           <p2 className="text-gray-600">HelgaR.Kovach@example.com</p2>
         </div>
 

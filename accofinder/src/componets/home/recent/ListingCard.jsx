@@ -24,12 +24,27 @@ const ListingCard = ({lists = []}) => {
     setCurrentPage(selected);
   };
   //handle go to details
-  const goToDetails = () => {
-    navigate("/details")
+  const goToDetails = (props) => {
+    navigate("/details",{state:{Room: props}})
   };
 
   return (
-    <div className='max-w-7xl mx-auto mt-6'>
+    <div className='max-w-7xl mx-auto mt-4'>
+        <ReactPaginate
+        previousLabel={'< Previous'}
+        nextLabel={'Next >'}
+        breakLabel={'...'}
+        pageCount={pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageChange}
+        containerClassName={'flex justify-center space-x-2 mb-8 mt-0'}
+        activeClassName={'bg-blue-500 text-white'}
+        pageClassName={'py-2 px-3 border rounded-md'}
+        previousClassName={'py-2 px-3 border rounded-md'}  
+        nextClassName={'py-2 px-3 border rounded-md  transition duration-500 hover:scale-95'}
+        disabledClassName={'text-gray-300 cursor-not-allowed  transition duration-500 hover:scale-95'}
+      />
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4'>
         {displayedItems.map((val, index) => {
           const { cover, status, name, price, type, rating, distance } = val;
@@ -64,7 +79,7 @@ const ListingCard = ({lists = []}) => {
                   <button className='bg-gray-600 text-white py-1 px-3 rounded opacity-30 mt-1 text-sm'>{price}</button>
                 </div>
                 <button className='bg-black text-white py-1 px-4 rounded-full mt-auto text-sm  transition duration-500 hover:scale-95'
-                  onClick={goToDetails}
+                  onClick={() => goToDetails(val)}
                 >
                   More
                 </button>

@@ -3,7 +3,7 @@ import { IoClose } from "react-icons/io5"; // import close icon from Material UI
 import { cardInfo } from '../data/Data';
 
 function Gallery() {
- 
+   
 
     const [model, setModel] = useState(false);
     const [tempimgSrc, setTempImgSrc] = useState('');

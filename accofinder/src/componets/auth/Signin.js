@@ -1,7 +1,9 @@
 import React from "react";
 import {useForm} from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -11,10 +13,9 @@ const Signin = () => {
   const password = watch("password");
   const onSubmit = (data) => {
     console.log(data);
+    
   };
-
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 relative">
       <div className="bg-white p-10 rounded-lg shadow-md h-[75vh] w-1/3 ">
         <h1 className="text-2xl font-bold text-center mb-6">
           Sign in to AccoFinder
@@ -115,7 +116,7 @@ const Signin = () => {
         </p>
         </form>
       </div>
-    </div>
+
   );
 };
 

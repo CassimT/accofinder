@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { IoClose } from "react-icons/io5"; // import close icon from Material UI
 import { cardInfo } from '../data/Data';
+import { useLocation } from 'react-router-dom';
+import rootShouldForwardProp from '@mui/material/styles/rootShouldForwardProp';
 
 function Gallery() {
-   
+   const locaton = useLocation();
+   const {Room} = locaton.state
 
     const [model, setModel] = useState(false);
     const [tempimgSrc, setTempImgSrc] = useState('');
@@ -24,12 +27,11 @@ function Gallery() {
                     />
                 </div>
             </div>
+            <h1>{Room.name}</h1>
             <div className="grid-flow-col-dense columns-1 sm:columns-2 md:columns-3 gap-3 px-3">
-                {cardInfo.map((item, index) => (
-                    <div className="mb-3 transition-opacity duration-350 cursor-pointer hover:opacity-80" key={index} onClick={() => getImg(item.imgSrc)}>
-                        <img src={item.imgSrc} alt={`Gallery item `} className="w-80" />
-                    </div>
-                ))}
+               <img src={Room.toiletImage}></img>
+               <img src={Room.kitchenImg}></img>
+              <img src={Room.cover}></img>
             </div>
         </>
     );

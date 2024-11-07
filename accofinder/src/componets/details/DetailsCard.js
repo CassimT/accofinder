@@ -1,54 +1,39 @@
 import React from 'react'
 //import { detailsCardData,list } from '../data/Data'
 import ListingDetails from './ListingDetails'
-import { MdAttachMoney, MdDirectionsSubway, MdLocationPin, MdSecurity,MdKitchen } from 'react-icons/md'
-import { GiBathtub, GiPathDistance } from 'react-icons/gi'
+import { useLocation } from 'react-router-dom'
+import { Card, Space, } from 'antd';
+
+//import { MdAttachMoney, MdDirectionsSubway, MdLocationPin, MdSecurity,MdKitchen } from 'react-icons/md'
+//import { GiBathtub, GiPathDistance } from 'react-icons/gi'
 
 
 
-export default function DetailsCard() {
+export default function DetailsCard({icon}) {
   
- const CardData = [
-    {
-      icons:<MdLocationPin className=" h-10 w-10"/>,
-      description:"description for this card"
-  },
-  {
-      icons:<GiPathDistance  className=" h-10 w-10"/>,
-      description:"description for this card"
-  },
-  {
-      icons:<MdAttachMoney className=" h-10 w-10 "/>,
-      description:"description for this card"
-  },
-  {
-      icons:<MdDirectionsSubway className=" h-10 w-10"/>,
-      description:"description for this card"
-  },
-  {
-      icons:<MdSecurity className=" h-10 w-10"/>,
-      description:"description for this card"
-  },
-  {
-      icons:<GiBathtub className=" h-10 w-10"/>,
-      description:"description for this card"
-  },
-  {
-    icons:<MdKitchen className=" h-10 w-10"/>,
-    description:"description for this card"
-}
-  
-  ]
+    const location = useLocation();
+    const {Room} = location.state
 
   return (
-    <div className='min-h-screen flex items-center justify-center p-4'>
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-12'>
-            {CardData.map((card,index)=> (
-                <ListingDetails key={index} icons={card.icons}
-                 description={card.description} />
+    <div className=' flex items-center justify-center p-6'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
+            
+            <Card
+            style={{
+                borderRadius: '12px',
+                color:'black',
+                height: '150px',
+                textAlign: 'center',
+                minWidth: '200px',
+                boxShadow:'0 4px 8px rgba(8,9,10,0.1)',
+            }}>
+                <Space direction='horizontal' size='large' style={ { alignItems: 'center'}}>
+                <div style={{ fontSize: '48px' }}>{icon}</div>
+                    <h1>{Room.price}</h1>
 
-            ))}
+                </Space>
 
+            </Card>
         </div>
       
     </div>

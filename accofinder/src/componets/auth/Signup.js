@@ -2,10 +2,15 @@ import React, { useState } from "react";
 
 function Signup() {
   const [formData, setFormData] = useState({
-    name: "",
+  firstname:"",
+
+    lastname: "",
     username: "",
     email: "",
     password: "",
+    phone: "",
+    studentid:"",
+    nationalid:"",
     role: "Student",
     agreeToTerms: false,
   });
@@ -30,18 +35,29 @@ function Signup() {
         <h1 className="text-2xl font-bold text-center mb-6">Sign Up to AccoFinder</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Name</label>
+            <label className="block text-gray-700 font-semibold mb-2">firstname</label>
             <input
               type="text"
-              name="name"
-              value={formData.name}
+              name="firstname"
+              value={formData.firstname}
               onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
               required
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Username</label>
+            <label className="block text-gray-700 font-semibold mb-2">lastname</label>
+            <input
+              type="text"
+              name="lastname"
+              value={formData.lastname}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-semibold mb-2">username</label>
             <input
               type="text"
               name="username"
@@ -52,18 +68,20 @@ function Signup() {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Email</label>
+            <label className="block text-gray-700 font-semibold mb-2">email</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="8+ characters"
               required
             />
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Password</label>
+          {/*input password */}
+<div className="mb-4">
+            <label className="block text-gray-700 font-semibold mb-2">password</label>
             <input
               type="password"
               name="password"
@@ -74,6 +92,46 @@ function Signup() {
               required
             />
           </div>
+{/*phone input */}
+<div className="mb-4">
+            <label className="block text-gray-700 font-semibold mb-2">phone</label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="8+ characters"
+              required
+            />
+          </div>
+          {/*studentid */}
+          <div className="mb-4">
+            <label className="block text-gray-700 font-semibold mb-2">studentid</label>
+            <input
+              type="text"
+              name="studentid"
+              value={formData.studentid}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="8+ characters"
+              required
+            />
+          </div>
+          {/*national id */}
+          <div className="mb-4">
+            <label className="block text-gray-700 font-semibold mb-2">nationalid</label>
+            <input
+              type="text"
+              name="nationalid"
+              value={formData.nationalid}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="8+ characters"
+              required
+            />
+          </div>
+
           <div className="mb-4">
             <label className="block text-gray-700 font-semibold mb-2">Sign up as:</label>
             <select

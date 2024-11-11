@@ -16,12 +16,13 @@ import NavBar from "./componets/header/NavBar";
 import PrivateRouters from "./componets/utils/PrivateRouters";
 import PaymentSelectionPage from "./pages/PaymentSelectionPage";
 import ForgetPasswordPage from "./pages/ForgetPasswordPage";
+import ProfileEditingPage from "./pages/ProfileEditingPage";
 
 
 
 const MainLayout = () => {
   const location = useLocation();
-  const noNavBarRoutes = ['/signin', '/signup', '/payment', '/details','/agents','/forgotpassword','/options'];
+  const noNavBarRoutes = ['/signin', '/signup', '/payment', '/details','/agents','/forgotpassword','/options','/profile/edit'];
   const hideNavBar = noNavBarRoutes.some(route => location.pathname.startsWith(route));
 
   return (
@@ -40,6 +41,7 @@ const MainLayout = () => {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/options" element={<PaymentSelectionPage />} />
           <Route path="/forgotpassword" element={<ForgetPasswordPage />} />
+          <Route path="/profile/edit" element={<ProfileEditingPage />} />
         </Routes>
       </div>
   );

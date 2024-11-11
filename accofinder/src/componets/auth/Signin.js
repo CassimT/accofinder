@@ -1,5 +1,7 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import {useForm} from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Signin = () => {
   const navigate = useNavigate()
@@ -10,14 +12,41 @@ const Signin = () => {
     formState: { errors },
   } = useForm();
   const password = watch("password");
-  const onSubmit = (data) => {
+  const onSubmit = async(data) => {
+    try {
+      const response = await axios.post("http://localhost:3000/api/auth/login", data, {
+       // withCredentials: true, // Ensure cookies are sent for session management
+      });
+      
+      if (response.status === 201) {
+        const {user,token} = response.data
+        console.log("Login successful!");
+        console.log("User object:", user);
+        const createdAt = Date.now()
+        localStorage.setItem("token",token)
+        localStorage.setItem("userId",user.id)
+        localStorage.setItem("tokenCreatedAt",createdAt)
+        if(user.role === "agent" || user.role === "student-agent"){
+            navigate(`/agents`)
+        }else{
+          navigate("/"); // Redirect to the profile page or another route
+        }
+
+       
+      }
+    } catch (error) {
+      console.error("Login failed:", error.response?.data || error.message);
+      alert("Invalid credentials or login failed. Please try again.");
+    }
+  
     console.log(data);
     
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center mb-6">Sign in to AccoFinder</h1>
+      <div className="bg-white p-10 rounded-lg shadow-md h-[75vh] w-1/3 ">
+        <h1 className="text-2xl font-bold text-center mb-6">
+          Sign in to AccoFinder
+        </h1>
 
         {/* Google Sign-In Button */}
         <button className="w-full bg-sky-300 hover:scale-95 transtion duration-500 text-black font-semibold py-2 px-4 rounded-full flex items-center justify-center mb-4">
@@ -36,25 +65,84 @@ const Signin = () => {
           </span>
         </div>
 
-        {/* Email Sign-In Button */}
-        <button
-          className="w-full bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-full mb-4"
-          onClick={() => navigate('/signin-with-email')} // Redirect to email sign-in page
-        >
-          Continue with Email
+        {/* Username/Email Input */}
+        <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="mb-5">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-black"
+          >
+            Username or Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="mt-1 w-full px-4 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg sm:text-sm"
+            placeholder="Username or email"
+            {...register("email", {
+              required: true,
+              pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i,
+            })}
+          />
+          {errors.email?.type === "required" && (
+            <p className="text-red-600 text-sm">email is required</p>
+          )}
+          {errors.email?.type === "pattern" && (
+            <p className="text-red-600 text-sm">email pattern is wrong</p>
+          )}
+        </div>
+
+        {/* Password Input */}
+        <div className="mb-4">
+          <label
+            htmlFor="password"
+            className="block text-sm font-semibold text-black"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            className="mt-1 block w-full px-4 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-500  rounded-lg sm:text-sm"
+            placeholder="password"
+            {...register("password", {
+              required: true,
+              minLength: 8,
+              maxLength: 20,
+            })}
+          />
+          {errors.password?.type === "minLength" && (
+            <p className="text-red-600 text-sm">
+              password must be atleast 8 characters
+            </p>
+          )}
+          {errors.password?.type === "maxLength" && (
+            <p className="text-red-600 text-sm">
+              password must be less than 20 characters
+            </p>
+          )}
+          <a
+            href="#"
+            className="text-xs text-blue-500 hover:underline float-right mt-1 mb-3"
+          >
+            Forgot password ?
+          </a>
+        </div>
+
+        {/* Sign In Button */}
+        <button className="w-full bg-black text-white font-semibold py-2 px-4 rounded-xl mb-4 hover:scale-95 transition duration-500">
+          Sign In
         </button>
 
-         <p className="text-center text-sm text-black">
+        {/* Sign up link */}
+        <p className="text-center text-sm text-black">
           Don’t have an account?{" "}
-          <span 
-            onClick={() => navigate('/signup')} 
-            className="text-blue-700 hover:underline cursor-pointer"
-          >
+          <a href="#" className="text-blue-700 hover:underline">
             Sign up
-          </span>
+          </a>
         </p>
+        </form>
       </div>
-    </div>
 
   );
 };

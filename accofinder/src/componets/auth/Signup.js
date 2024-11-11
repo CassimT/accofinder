@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-
 function Signup() {
   const {
     register,
@@ -19,42 +18,6 @@ function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
-        <h1 className="text-2xl font-bold text-center mb-6">Sign Up to AccoFinder</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">firstname</label>
-            <input
-              type="text"
-              name="firstname"
-              value={formData.firstname}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">lastname</label>
-            <input
-              type="text"
-              name="lastname"
-              value={formData.lastname}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">username</label>
-            <input
-              type="text"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
   
       <div className="absolute h-[94vh] w-[40%] bg-white shadow-md rounded-lg">
         <h1 className="text-xl font-bold text-center m-5">
@@ -111,9 +74,6 @@ function Signup() {
               <p className="text-red-600 text-sm">email pattern is wrong</p>
             )}
           </div>
-          {/*input password */}
-<div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">password</label>
           <div className="mb-4">
             <label className="block text-black font-semibold mb-2">
               Password

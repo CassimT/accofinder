@@ -3,9 +3,9 @@ import { Outlet,Navigate } from 'react-router-dom';
 import SingInPage from '../../pages/SingInPage';
 
 function PrivateRouters({ authToken }) {
-    const auth = {'token':true};
+    const token = localStorage.getItem("token")
   return (
-    auth.token ? <Outlet/> : <SingInPage/>
+    token ? <Outlet/> : <SingInPage/>
   )
 }
 

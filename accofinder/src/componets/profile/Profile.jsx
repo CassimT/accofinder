@@ -1,7 +1,12 @@
 import React from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import img from '../profile/Profile';
+import { useNavigate } from 'react-router-dom';
 const Profile = () => {
+  const navigate = useNavigate()
+  const goToEditForm  = ()=> {
+      navigate("profile/edit")
+  }
   return (
       <div className="w-80 bg-white rounded-lg shadow-lg overflow-hidden text-center relative">
         <div className="bg-blue-200  text-blue-800 font-semibold py-1 text-lg absolute w-full h-28">
@@ -16,7 +21,7 @@ const Profile = () => {
             />
 
             <span className="absolute right-0 top-0 bg-blue-100 p-1 rounded-full">
-              <EditOutlined className="text-blue-500 text-lg" />
+              <EditOutlined onClick={goToEditForm} className="text-blue-500 text-lg" />
             </span>
           </div>
         </div>

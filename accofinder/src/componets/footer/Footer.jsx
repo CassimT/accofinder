@@ -9,22 +9,22 @@ const Footer = () => {
         </p>
         <ul className="flex flex-row gap-5">
           <li>
-            <a href="" className="font-sans hover hover:underline">
+            <a href="" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
               Home
             </a>
           </li>
           <li>
-            <a href="" className="font-sans hover hover:underline">
+            <a href="" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
               Agent
             </a>
           </li>
           <li>
-            <a href="" className="font-sans hover hover:underline">
+            <a href="" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
               Accomodation
             </a>
           </li>
           <li>
-            <a href="" className="font-sans hover hover:underline">
+            <a href="" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
               FAQ
             </a>
           </li>

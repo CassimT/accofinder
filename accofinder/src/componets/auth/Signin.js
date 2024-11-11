@@ -1,6 +1,7 @@
 import React from "react";
 import {useForm} from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Signin = () => {
   const navigate = useNavigate()
@@ -11,7 +12,33 @@ const Signin = () => {
     formState: { errors },
   } = useForm();
   const password = watch("password");
-  const onSubmit = (data) => {
+  const onSubmit = async(data) => {
+    try {
+      const response = await axios.post("http://localhost:3000/api/auth/login", data, {
+       // withCredentials: true, // Ensure cookies are sent for session management
+      });
+      
+      if (response.status === 201) {
+        const {user,token} = response.data
+        console.log("Login successful!");
+        console.log("User object:", user);
+        const createdAt = Date.now()
+        localStorage.setItem("token",token)
+        localStorage.setItem("userId",user.id)
+        localStorage.setItem("tokenCreatedAt",createdAt)
+        if(user.role === "agent" || user.role === "student-agent"){
+            navigate(`/agents`)
+        }else{
+          navigate("/"); // Redirect to the profile page or another route
+        }
+
+       
+      }
+    } catch (error) {
+      console.error("Login failed:", error.response?.data || error.message);
+      alert("Invalid credentials or login failed. Please try again.");
+    }
+  
     console.log(data);
     
   };

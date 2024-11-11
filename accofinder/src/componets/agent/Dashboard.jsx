@@ -6,12 +6,13 @@ import {
   UserOutlined,
   DollarCircleOutlined
 } from "@ant-design/icons";
-import { Space } from 'antd';
+import { Space,Typography } from 'antd';
 import DashboardCard from './DashboardCard';
 
 export default function Dashboard() {
    // Initial state based on window size
   const [isVertical, setIsVertical] = useState(window.innerWidth < 768);
+  const [userId, setUserId] = useState("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,6 +20,8 @@ export default function Dashboard() {
     };
     window.addEventListener('resize', handleResize);
     handleResize(); 
+    const storedUserId = localStorage.getItem("userId");
+    setUserId(storedUserId);
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -27,6 +30,7 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col justify-center items-center max-w-full p-4">
+      <Typography.Title level={3}>User ID: {userId}</Typography.Title>
       <Space size={20} direction={isVertical ? "vertical" : "horizontal"} style={{ width: '80%', justifyContent: 'center' }}>
         <DashboardCard
           icon={

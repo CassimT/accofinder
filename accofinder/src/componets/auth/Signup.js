@@ -51,24 +51,24 @@ function Signup() {
             Firstname
             <input
               type="text"
-              placeholder="name"
+              placeholder="first name"
               className="px-2 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-              {...register("Name", { required: true })}
+              {...register("firstName", { required: true })}
             />
-            {errors.Name?.type === "required" && (
-              <p className="text-red-600 text-sm">Name is required</p>
+            {errors.firstName?.type === "required" && (
+              <p className="text-red-600 text-sm">first name is required</p>
             )}
           </label>
           <label className="flex flex-col text-black">
             Last Name
             <input
               type="text"
-              placeholder="username"
+              placeholder="last name"
               className="px-2 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-              {...register("username", { required: true })}
+              {...register("lastName", { required: true })}
             />
-            {errors.username?.type === "required" && (
-              <p className="text-red-600 text-sm">Username is required</p>
+            {errors.lastName?.type === "required" && (
+              <p className="text-red-600 text-sm">last name is required</p>
             )}
           </label>
         </div>
@@ -80,7 +80,11 @@ function Signup() {
             type="text"
             placeholder="Username"
             className="px-2 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg w-full"
+            {...register("userName", { required: true })}
           />
+            {errors.userName?.type === "required" && (
+              <p className="text-red-600 text-sm">Username is required</p>
+            )}
         </div>
 
         {/* Email */}

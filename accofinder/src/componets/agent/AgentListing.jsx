@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useNavigation } from 'react-router-dom';
 import { Table, Input, Button,Spin,Alert } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useQuery } from '@tanstack/react-query';
@@ -82,6 +82,10 @@ function AgentListing() {
       refetch(); // refetch after deletion
     });
   };
+  //go to editForm
+  const gotToEditListing = ()=> {
+    navigate("/editlisting")
+  }
 
   const columns = [
     {
@@ -113,7 +117,7 @@ function AgentListing() {
           <Button
             icon={<EditOutlined />}
             className="bg-blue-500 hover:bg-blue-600 text-white text-xs"
-            onClick={() => navigate(`/edit/${record.name}`)}
+            onClick={() => navigate(`edit`)}
             size="small"
           >
             Edit

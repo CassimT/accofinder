@@ -17,6 +17,7 @@ import PrivateRouters from "./componets/utils/PrivateRouters";
 import PaymentSelectionPage from "./pages/PaymentSelectionPage";
 import ForgetPasswordPage from "./pages/ForgetPasswordPage";
 import ProfileEditingPage from "./pages/ProfileEditingPage";
+import PaymentsHistoryPage from "./pages/PaymentsHistoryPage";
 
 
 
@@ -31,6 +32,7 @@ const MainLayout = () => {
         <Routes>
           <Route element = {<PrivateRouters/>}>
             <Route path="/payment" element={<PaymentPage />} /> 
+            <Route path="/payment/history" element={<PaymentsHistoryPage />} /> 
             <Route path="/agents/*" element={<AgentPage />} />       
           </Route>
           <Route path="/" element={<HomPage />} />                

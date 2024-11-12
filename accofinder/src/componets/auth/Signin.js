@@ -1,10 +1,13 @@
 import React from "react";
 import {useForm} from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { GoogleOutlined } from '@ant-design/icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import axios from "axios";
 
 const Signin = () => {
   const navigate = useNavigate()
+  localStorage.setItem("redirectAfterLogin", window.location.pathname)
   const {
     register,
     handleSubmit,
@@ -20,6 +23,7 @@ const Signin = () => {
       
       if (response.status === 201) {
         const {user,token} = response.data
+        const redirect = localStorage.getItem('redirectAfterLogin')
         console.log("Login successful!");
         console.log("User object:", user);
         const createdAt = Date.now()
@@ -27,7 +31,7 @@ const Signin = () => {
         localStorage.setItem("userId",user.id)
         localStorage.setItem("tokenCreatedAt",createdAt)
         if(user.role === "agent" || user.role === "student-agent"){
-            navigate(`/agents`)
+            navigate(`${redirect}`)
         }else{
           navigate("/"); // Redirect to the profile page or another route
         }
@@ -49,12 +53,8 @@ const Signin = () => {
         </h1>
 
         {/* Google Sign-In Button */}
-        <button className="w-full bg-sky-300 hover:scale-95 transtion duration-500 text-black font-semibold py-2 px-4 rounded-full flex items-center justify-center mb-4">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            alt="Google logo"
-            className="h-5 w-5 mr-2"
-          />
+        <button className="w-full bg-sky-300 hover:scale-95 gap-2 transtion duration-500 text-black font-semibold py-2 px-4 rounded-full flex items-center justify-center mb-4">
+        <GoogleOutlined />
           Sign in with Google
         </button>
 
@@ -137,9 +137,9 @@ const Signin = () => {
         {/* Sign up link */}
         <p className="text-center text-sm text-black">
           Don’t have an account?{" "}
-          <a href="#" className="text-blue-700 hover:underline">
+          <Link href="#" className="text-blue-700 hover:underline" to={"/signup"}>
             Sign up
-          </a>
+          </Link>
         </p>
         </form>
       </div>

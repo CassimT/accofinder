@@ -5,6 +5,7 @@ import AddListingForm from "../componets/agent/AddListingForm";
 import AgentListing from "../componets/agent/AgentListing";
 import Dashboard from "../componets/agent/Dashboard";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import EdiditListingForm from "../componets/agent/EdiditListingForm";
 
 // Create a client instance
 const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ const AgentPage = () => {
             <Route path="/" element={<Dashboard />} /> 
             <Route path="add" element={<AddListingForm />} /> 
             <Route path="listing" element={<AgentListing />} /> 
+            <Route path="editlisting" element={<EdiditListingForm />} /> 
           </Routes>
         </div>
       </div>

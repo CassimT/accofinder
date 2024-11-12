@@ -1,70 +1,111 @@
-import React from "react";
-import {useForm} from "react-hook-form";
-import Button from "./Button"
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Alert, Button } from "antd";  // Import Ant Design components
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+import FormData from "form-data";
 
-const MobilePaymentForm = () =>{
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-    
-  // function for handling form submition
-  const onSubmit = (data) => {
-    console.log(data);
+const MobilePaymentForm = () => {
+  const location = useLocation();
+  const [formData, setFormData] = useState({
+    username: '',
+    phone: '',
+    amount: '50',  // Set default amount if it's fixed
+  });
+
+  const [alertMessage, setAlertMessage] = useState(null);  // State for alert
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = async (data) => {
+    setIsLoading(true);
+    setAlertMessage(null);  // Clear previous messages
+
+    try {
+      const response = await axios.post("http://localhost:3000/api/aitel-access/mobile/pay", data, {
+          //headers to be included
+      });
+
+      // Show success alert
+      setAlertMessage({ type: "success", message: "Payment processed successfully!" });
+    } catch (error) {
+      // Show error alert
+      setAlertMessage({ type: "error", message: "Payment processing failed. Please try again." });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-    return(
+  return (
     <div className="w-full h-screen">
-      <div className="bg-gradient-to-r to-blue-500 from-green-600  flex flex-col h-[60vh] items-center justify-center relative">
+      <div className="bg-gradient-to-r to-blue-500 from-green-600 flex flex-col h-[60vh] items-center justify-center relative">
         <p className="text-2xl font-semibold font-sans -mt-32 text-center">
-          Your payment is safe with us <br /> Book with
-          confidence
+          Your payment is safe with us <br /> Book with confidence
         </p>
 
-        {/* payment form for mobile wallet */}
-        <div className="border border-gray-50 bg-[#f4f4f4] shadow-xl w-[40%] h-[60vh] rounded-xl absolute -mb-96">
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-y-4 items-center justify-center mt-8"
-          >
-            <h3 className="font-semibold text-xl  mb-3">Mobile payment</h3>
+        <div className="border border-gray-50 bg-[#f4f4f4] shadow-xl w-[40%] h-[60vh] rounded-xl absolute -mb-96 p-6">
+          {alertMessage && (
+            <Alert
+              message={alertMessage.message}
+              type={alertMessage.type}
+              showIcon
+              closable
+              className="mb-4"
+            />
+          )}
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-4 items-center justify-center mt-4">
+            <h3 className="font-semibold text-xl mb-3">Mobile Payment</h3>
+
             <label className="w-[60%] flex flex-col font-sm">
               Username
               <input
                 type="text"
-                name = "username"
+                name="username"
                 {...register("username", { required: true })}
                 placeholder="Cesar Medrano"
                 className="py-2 px-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 border-2 border-gray-200 bg-gray-100"
               />
             </label>
-            <label className="flex flex-col w-[60%] font-sm">
+            {errors.username && <span className="text-red-500 text-sm">Username is required</span>}
+
+            <label className="w-[60%] flex flex-col font-sm">
               Phone number
               <input
-                type="phone"
-                name="phoneNumber"
+                type="tel"
+                name="phone"
+                {...register("phone", { required: true })}
                 placeholder="+265"
-                {...register("phoneNumber", { required: true })}
-                className="py-2 px-10 focus:outline-none focus:ring-2 focus:ring-orange-500  rounded-lg border-2 border-gray-200 bg-gray-100"
+                className="py-2 px-10 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg border-2 border-gray-200 bg-gray-100"
               />
             </label>
-            <label className="flex flex-col w-[60%] font-sm">
+            {errors.phoneNumber && <span className="text-red-500 text-sm">Phone number is required</span>}
+
+            <label className="w-[60%] flex flex-col font-sm">
               Amount
               <input
                 type="text"
                 name="amount"
-                readOnly={true}
-                {...register("amount", { required: true,})}
-                placeholder="MK0.00"
+                value={formData.amount}
+                readOnly
+                {...register("amount", { required: true })}
                 className="py-2 px-10 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg border-2 border-gray-200 bg-gray-100"
               />
             </label>
-            <Button/>
+
+            <Button
+              type="primary"
+              htmlType="submit"
+              loading={isLoading}
+              className="mt-4"
+            >
+              {isLoading ? 'Processing...' : 'Submit Payment'}
+            </Button>
           </form>
         </div>
       </div>
     </div>
-    )
-}
+  );
+};
+
 export default MobilePaymentForm;

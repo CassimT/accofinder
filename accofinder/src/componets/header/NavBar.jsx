@@ -9,7 +9,9 @@ import ProfileButton from "./ProfileButton";
 import {Input} from 'antd'; 
 import { list } from "../data/Data";
 import { ImOffice } from "react-icons/im";
+import axios from "axios";
 const {Search} = Input
+
 
 
 const NavBar = () => {
@@ -69,7 +71,27 @@ const NavBar = () => {
         navigate(path, { state: { term: searchTerm } });
       }   
   };
+  const handleAgentClick = async (e, path) => {
+    e.preventDefault(); 
 
+    const agentId = localStorage.getItem("userId");
+    if (!agentId) {
+      navigate("/signin"); 
+      return;
+    }
+    try {
+      const response = await axios.get("http://localhost:3000/api/auth/check", { params: { id: agentId } });
+      const user = response.data.user;
+      if (response.status === 200 && user.role === "agent") {
+        navigate(path); 
+      } else {
+        alert("You do not have permission to access this page.");
+      }
+    } catch (error) {
+      console.error("Role verification failed:", error);
+      alert("Error verifying user role. Please try again.");
+    }
+  };
 
   return (
     <>    
@@ -89,6 +111,7 @@ const NavBar = () => {
                 <a
                   href={item.path} // Use path from nav array
                   className="hover:text-orange-700 hover:underline duration-500 transition"
+                  //onClick={(e) => handleAgentClick(e, item.path)}
                 >
                   {item.text}
                 </a>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Signup() {
   const navigate = useNavigate();
@@ -16,21 +17,22 @@ function Signup() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch("http://localhost:3000/api/register", data,{
-  
+      const response = await axios.post("http://localhost:3000/api/users/register", data, {
+       // withCredentials: true, // Ensure cookies are sent for session management
       });
-
-      if (response.ok) {
-        console.log("Registration successful!");
-        navigate("/signin"); 
-      } else {
-        const errorData = await response.json();
-        console.error("Error:", errorData.message || "Registration failed");
-      }
+        if(response.status === 201) {
+          alert("Form submited successfully")
+          navigate("/singin")
+        }
+      
     } catch (error) {
-      console.error("Network error:", error);
+      console.error("Login failed:", error.response?.data || error.message);
+      alert("Invalid credentials or login failed. Please try again.");
     }
-  };
+    console.log(data);
+
+  
+};
 
   return (
     <div className="bg-white shadow-md rounded-lg p-6 m-5">
@@ -47,9 +49,9 @@ function Signup() {
             Firstname
             <input
               type="text"
-              placeholder="first name"
+              placeholder="firstname"
               className="px-2 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-              {...register("firstName", { required: true })}
+              {...register("firstname", { required: true })}
             />
             {errors.firstName?.type === "required" && (
               <p className="text-red-600 text-sm">first name is required</p>
@@ -59,9 +61,9 @@ function Signup() {
             Last Name
             <input
               type="text"
-              placeholder="last name"
+              placeholder="lastname"
               className="px-2 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-              {...register("lastName", { required: true })}
+              {...register("lastname", { required: true })}
             />
             {errors.lastName?.type === "required" && (
               <p className="text-red-600 text-sm">last name is required</p>
@@ -76,9 +78,9 @@ function Signup() {
             type="text"
             placeholder="Username"
             className="px-2 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg w-full"
-            {...register("userName", { required: true })}
+            {...register("username", { required: true })}
           />
-            {errors.userName?.type === "required" && (
+            {errors.username?.type === "required" && (
               <p className="text-red-600 text-sm">Username is required</p>
             )}
         </div>

@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import Profile from '../profile/Profile';
+import React, { useState, useRef, useEffect } from "react";
+import Profile from "../profile/Profile";
 
 function ProfileButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,12 +26,12 @@ function ProfileButton() {
       {/* Profile Button */}
       <button
         onClick={toggleMenu}
-        className="flex items-center justify-center space-x-2 px-4 h-14 w-14 py-2 text-white bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none"
+        className="flex items-center justify-center h-14 w-14 text-white bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none"
       >
         <img
-          src="../logo512.png"
+          src="../test1.png"
           alt=""
-          className="w-10 h-10 rounded-full"
+          className="h-full w-full rounded-full object-cover"
         />
       </button>
 
@@ -40,8 +40,7 @@ function ProfileButton() {
         <div className="absolute right-0 mt-2 w-72 bg-gray-800 text-white rounded-lg shadow-lg z-10">
           <div className="flex items-center justify-center space-x-4">
             {/**ProfileComponet */}
-            <Profile/>
-            
+            <Profile />
           </div>
         </div>
       )}

@@ -3,6 +3,7 @@ import Gallery from '../componets/details/Gallery'
 //import DetailsCard from '../componets/details/DetailsCard'
 import OncardDetails from '../componets/details/OncardDetails'
 import Button from '../componets/payment/Button'
+import RateAndReview from '../componets/rate&review/RateAndReview'
 
 
 export default function DetailsPage(icon, title, value) {
@@ -13,6 +14,7 @@ export default function DetailsPage(icon, title, value) {
     <Gallery/>
     <OncardDetails/>
     <Button/>
+    <RateAndReview/>
       
       
 

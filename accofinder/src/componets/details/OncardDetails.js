@@ -69,7 +69,7 @@ export default function OncardDetails() {
             fontSize: 24,
             padding: 8,
           }}/>}
-          title={"security"}
+          title={"Distance"}
           value={Room.distance}
              />
      <DetailsCard 

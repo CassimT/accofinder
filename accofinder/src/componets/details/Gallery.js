@@ -23,11 +23,13 @@ function Gallery() {
             </div>
 
             <Title level={2}>{Room.name}</Title>
-            <div className="flex justify-center items-center">
-               <img className=' w-[500px] h-[500px]' src={Room.toiletImage} alt='bathroom'></img>
-               <div className=' flex flex-col'>
-                    <img className=' w-96 h-[250px]' src={Room.kitchenImg} alt='kitchen'></img>
-                    <img className=' w-96 h-[250px]'src={Room.cover} alt='cover'></img>
+            <div className="flex justify-center items-center ">
+               <img className=' w-[450px] h-[500px]' src={Room.cover} alt='cover'></img> 
+               <img className=' w-[450px] h-[500px]'src={Room.bedrooms} alt='bathroom'></img>            
+               <div className=' flex flex-col gap-1'>
+                    <img className=' w-96 h-[250px] ' src={Room.kitchenImg} alt='kitchen'></img>
+                    <img className=' w-96 h-[250px] 'src={Room.toiletImage} alt='bathroom'></img>
+                   
                </div>
             </div>
         </>

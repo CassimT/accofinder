@@ -10,6 +10,15 @@ export const nav = [
     text: "Agent",
     path: "/agents",
   },
+  {
+    text: "Histroy",
+    path: "/history",
+  },
+  {
+    text: "Team",
+    path: "/team",
+  },
+
 
 ]
 export const featured = [
@@ -504,3 +513,100 @@ export const cardInfo = [
 {imgSrc:"../images/list/p19.jpg"},
 {imgSrc:"../images/list/p9.jpg"},
 ]
+
+//team
+export const team = [
+  {
+    position: "Programmer",
+    cover: "../team/team-1.jpg",
+    address: "Mzuzu",
+    phone: "0883560759",
+    name: "Cassimt",
+    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+  },
+  {
+    position: "CEO",
+    cover: "../team/team-2.jpg",
+    address: "Lillongwe",
+    phone: "0883560759",
+    name: "Bennadeta",
+    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+  },
+  {
+    position: "CTO",
+    cover: "../team/team-3.jpg",
+    address: "Mzuzu",
+    phone: "0883560759",
+    name: "Tusha",
+    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+  },
+  {
+    position: "CPO",
+    cover: "../team/team-4.jpg",
+    address: "Blantyre",
+    phone: "0883560759",
+    name: "Sydny",
+    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+  },
+  {
+    position: "Developer",
+    cover: "../team/team-5.jpg",
+    address: "2272 Briarwood Drive",
+    phone: "0883560759",
+    name: "Devid",
+    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
+  },
+  
+
+]
+
+export const data = [
+  {
+    key: "1",
+    Name: "7477614b-d882-40b1-87de-1cf36ab41573",
+    cardHolder: "Name",
+    amount: "MWK 100",
+    status: "STARTED",
+    date: "Mon, 14 Oct 2024 20:35:49",
+  },
+  {
+    key: "2",
+    order: "b6400cbb-cbd7-47b2-a2b5-1ac96620f43",
+    cardHolder: "Jane Smith",
+    amount: "MWK 100",
+    status: "STARTED",
+    date: "Tue, 15 Oct 2024 11:43:51",
+  },
+  {
+    key: "3",
+    order: "c21751d8-9638-409a-996a-f4264587d247",
+    cardHolder: "Mark Johnson",
+    amount: "MWK 100",
+    status: "STARTED",
+    date: "Mon, 14 Oct 2024 19:42:52",
+  },
+];
+
+export const bookings = [
+  {
+    id: 1,
+    listingName: "Luxury Apartment in Downtown",
+    date: "2024-11-20",
+    price: "$150 per night",
+    status: "Payed"
+  },
+  {
+    id: 2,
+    listingName: "Cozy Cottage by the Lake",
+    date: "2024-11-18",
+    price: "$200 per night",
+    status: "Payed"
+  },
+  {
+    id: 3,
+    listingName: "Modern Condo with City View",
+    date: "2024-11-15",
+    price: "$120 per night",
+    status: "Payed"
+  },
+];

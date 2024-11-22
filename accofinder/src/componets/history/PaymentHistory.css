@@ -1,0 +1,25 @@
+.custom-ant-table .ant-table {
+    border: none;
+  }
+  
+  .custom-ant-table .ant-table-container {
+    border: none;
+  }
+  
+  .custom-ant-table .ant-table-row {
+    border-bottom: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+  }
+  
+  .custom-ant-table .ant-table-thead > tr > th {
+    border-bottom: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+    background-color: #f9fafb; /* Tailwind's gray-50 */
+  }
+  
+  .custom-ant-table .ant-table-tbody > tr:last-child > td {
+    border-bottom: none;
+  }
+  
+  .custom-ant-table .ant-table-tbody > tr > td {
+    border: none; /* Remove vertical borders */
+  }
+  

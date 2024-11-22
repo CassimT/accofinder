@@ -1,6 +1,6 @@
 import React from "react";
 import ListingCard from "./ListingCard";
-import Heading from "./Heading"; // Assuming this component is relevant to the listings
+import Heading from "./Heading"; 
 
 const Listing = ({ lists = [] }) => {
   return (

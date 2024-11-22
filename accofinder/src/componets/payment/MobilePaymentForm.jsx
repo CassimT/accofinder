@@ -28,7 +28,7 @@ const MobilePaymentForm = () => {
       });
 
       // Show success alert
-      setAlertMessage({ type: "success", message: "Payment processed successfully!" });
+      setAlertMessage({ type: "success", message: "processing payement!" });
     } catch (error) {
       // Show error alert
       setAlertMessage({ type: "error", message: "Payment processing failed. Please try again." });

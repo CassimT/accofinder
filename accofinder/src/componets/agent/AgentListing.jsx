@@ -77,7 +77,6 @@ function AgentListing() {
   }
   // Deleting listing handler
   const handleDelete = (listingId) => {
-    // Makimg API call to delete the listing
     axios.delete(`http://localhost:3000/api/listings/${listingId}`).then(() => {
       refetch(); // refetch after deletion
     });

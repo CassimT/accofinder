@@ -100,7 +100,7 @@ const NavBar = () => {
         {/* Logo Section */}
         <div className="flex items-center gap-2">
           <BiHome className="text-2xl text-orange-600" aria-label="Home icon" />
-          <h1 className="font-semibold text-xl">ACCO<span className=" text-blue-700 text-sm">FINDER</span></h1>
+          <h1 className="font-semibold text-xl">ACCOFINDER</h1>
         </div>
 
         {/* Navigation Menu for Desktop */}
@@ -135,7 +135,7 @@ const NavBar = () => {
           </div>
           <button 
             onClick={goToSingIn}
-            className="px-3 py-1 transition duration-500 hover:scale-95 border border-black rounded-xl font-semibold text-sm">
+            className="py-2 px-4 transition duration-500 hover:scale-95 border border-black rounded-xl font-semibold">
             Log in
           </button>
           <Button 

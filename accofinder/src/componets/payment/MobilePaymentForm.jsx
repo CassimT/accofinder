@@ -44,7 +44,7 @@ const MobilePaymentForm = () => {
           Your payment is safe with us <br /> Book with confidence
         </p>
 
-        <div className="border border-gray-50 bg-[#f4f4f4] shadow-xl w-[80%] sm:w-[70%] md:w-[60%] lg:w-[40%] h-[60vh] rounded-xl absolute -mb-96 p-6">
+        <div className="border border-gray-50 bg-[#f4f4f4] shadow-xl w-[80%] sm:w-[70%] md:w-[60%] lg:w-[40%] h-[70vh] rounded-xl absolute -mb-96 p-6">
           {alertMessage && (
             <Alert
               message={alertMessage.message}
@@ -97,7 +97,7 @@ const MobilePaymentForm = () => {
               type="primary"
               htmlType="submit"
               loading={isLoading}
-              className="bg-black font-bold mt-4 w-[80%] sm:w-[70%] md:w-[60%]"
+              className="bg-black font-bold py-2  mt-4 w-[80%] sm:w-[70%] md:w-[60%]"
             >
               {isLoading ? 'Processing...' : 'Submit Payment'}
             </Button>

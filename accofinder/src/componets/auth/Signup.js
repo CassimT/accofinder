@@ -18,25 +18,22 @@ function Signup() {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post("http://localhost:3000/api/users/register", data, {
-       // withCredentials: true, // Ensure cookies are sent for session management
+        // withCredentials: true, // Ensure cookies are sent for session management
       });
-        if(response.status === 201) {
-          alert("Form submited successfully")
-          navigate("/singin")
-        }
-      
+      if (response.status === 201) {
+        alert("Form submitted successfully");
+        navigate("/signin");
+      }
     } catch (error) {
-      console.error("Login failed:", error.response?.data || error.message);
-      alert("Invalid credentials or login failed. Please try again.");
+      console.error("Signup failed:", error.response?.data || error.message);
+      alert("Signup failed. Please try again.");
     }
     console.log(data);
-
-  
-};
+  };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 m-5">
-      <h1 className="text-xl font-bold text-center mb-6">
+    <div className="bg-white shadow-md rounded-lg p-6 sm:p-8 md:p-10 lg:p-12 mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6">
         Sign Up to AccoFinder
       </h1>
       <form
@@ -44,8 +41,8 @@ function Signup() {
         className="flex flex-col items-center gap-y-4"
       >
         {/* Name and Username */}
-        <div className="flex flex-row gap-x-3 mb-4">
-          <label className="flex flex-col text-black ">
+        <div className="flex flex-col sm:flex-row gap-x-3 w-full mb-4">
+          <label className="flex flex-col w-full sm:w-1/2 text-black">
             Firstname
             <input
               type="text"
@@ -54,11 +51,11 @@ function Signup() {
               {...register("firstname", { required: true })}
             />
             {errors.firstName?.type === "required" && (
-              <p className="text-red-600 text-sm">first name is required</p>
+              <p className="text-red-600 text-sm">First name is required</p>
             )}
           </label>
-          <label className="flex flex-col text-black">
-            Last Name
+          <label className="flex flex-col w-full sm:w-1/2 text-black">
+            Lastname
             <input
               type="text"
               placeholder="lastname"
@@ -66,13 +63,13 @@ function Signup() {
               {...register("lastname", { required: true })}
             />
             {errors.lastName?.type === "required" && (
-              <p className="text-red-600 text-sm">last name is required</p>
+              <p className="text-red-600 text-sm">Last name is required</p>
             )}
           </label>
         </div>
 
         {/* Username */}
-        <div className="flex flex-col w-full px-4 mb-4">
+        <div className="flex flex-col w-full mb-4">
           <label className="block text-black mb-2">Username</label>
           <input
             type="text"
@@ -80,13 +77,13 @@ function Signup() {
             className="px-2 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg w-full"
             {...register("username", { required: true })}
           />
-            {errors.username?.type === "required" && (
-              <p className="text-red-600 text-sm">Username is required</p>
-            )}
+          {errors.username?.type === "required" && (
+            <p className="text-red-600 text-sm">Username is required</p>
+          )}
         </div>
 
         {/* Email */}
-        <div className="flex flex-col w-full px-4 mb-4">
+        <div className="flex flex-col w-full mb-4">
           <label className="block text-black font-semibold mb-2">Email</label>
           <input
             type="email"
@@ -106,10 +103,8 @@ function Signup() {
         </div>
 
         {/* Password */}
-        <div className="flex flex-col w-full px-4 mb-4">
-          <label className="block text-black font-semibold mb-2">
-            Password
-          </label>
+        <div className="flex flex-col w-full mb-4">
+          <label className="block text-black font-semibold mb-2">Password</label>
           <input
             type="password"
             className="px-2 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -121,22 +116,16 @@ function Signup() {
             })}
           />
           {errors.password?.type === "minLength" && (
-            <p className="text-red-600 text-sm">
-              Password must be at least 8 characters
-            </p>
+            <p className="text-red-600 text-sm">Password must be at least 8 characters</p>
           )}
           {errors.password?.type === "maxLength" && (
-            <p className="text-red-600 text-sm">
-              Password must be less than 20 characters
-            </p>
+            <p className="text-red-600 text-sm">Password must be less than 20 characters</p>
           )}
         </div>
 
         {/* Confirm Password */}
-        <div className="flex flex-col w-full px-4 mb-4">
-          <label className="block text-black font-semibold mb-2">
-            Confirm Password
-          </label>
+        <div className="flex flex-col w-full mb-4">
+          <label className="block text-black font-semibold mb-2">Confirm Password</label>
           <input
             type="password"
             className="px-2 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -148,18 +137,16 @@ function Signup() {
           )}
         </div>
 
-        {/* SignUp as */}
-        <div className="mb-4 w-full px-4">
-          <label className="block text-black font-semibold mb-2">
-            Sign up as:
-            <select
-              className="px-4 py-2 border ml-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-              {...register("role", { required: "Please select a role" })}
-            >
-              <option value="Student">Student</option>
-              <option value="Landlord">Landlord</option>
-            </select>
-          </label>
+        {/* Sign Up as */}
+        <div className="mb-4 w-full">
+          <label className="block text-black font-semibold mb-2">Sign up as:</label>
+          <select
+            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 w-full"
+            {...register("role", { required: "Please select a role" })}
+          >
+            <option value="Student">Student</option>
+            <option value="Landlord">Landlord</option>
+          </select>
         </div>
 
         {/* Terms and Condition */}
@@ -170,7 +157,7 @@ function Signup() {
             className="mr-2"
             required
           />
-          <span className="text-xs text-gray-700">
+          <span className="text-xs sm:text-sm text-gray-700">
             I agree with AccoFinder{" "}
             <a href="#" className="text-blue-500">
               Terms of Service
@@ -182,17 +169,18 @@ function Signup() {
             , and default Notification Settings.
           </span>
         </div>
-
+        <div className="w-full mt-4">
         <button
           type="submit"
-          className="bg-black text-white font-semibold py-2 px-10 rounded-lg hover:scale-95 transition duration-500"
+          className="bg-black text-white font-semibold py-2 px-10 rounded-lg hover:scale-95 transition duration-500 sm:w-auto"
         >
           Create Account
         </button>
+        </div>
 
-        <p className="m-4 text-black">
+        <p className="m-4 text-black text-center">
           Already have an account?{" "}
-          <Link className="text-blue-500" to={"/signin"}>
+          <Link className="text-blue-500" to="/signin">
             Sign In
           </Link>
         </p>

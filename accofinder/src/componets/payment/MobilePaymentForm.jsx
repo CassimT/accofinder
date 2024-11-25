@@ -97,7 +97,7 @@ const MobilePaymentForm = () => {
               type="primary"
               htmlType="submit"
               loading={isLoading}
-              className="mt-4 w-[80%] sm:w-[70%] md:w-[60%]"
+              className="bg-black font-bold mt-4 w-[80%] sm:w-[70%] md:w-[60%]"
             >
               {isLoading ? 'Processing...' : 'Submit Payment'}
             </Button>

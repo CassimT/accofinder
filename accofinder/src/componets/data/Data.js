@@ -2,7 +2,7 @@
 
 export const nav = [
   {
-    text: "home",
+    text: "Home",
     path: "/",
     icon: "fa fa-edit"
   },

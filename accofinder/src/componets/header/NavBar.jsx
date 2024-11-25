@@ -107,7 +107,7 @@ const NavBar = () => {
         <nav className="hidden md:flex items-center gap-6 text-base font-medium flex-wrap">
           <ul className="flex gap-4 font-sans font-medium cursor-pointer">
             {nav.map((item) => (
-              <li key={item.text} className=" text-sm">
+              <li key={item.text} className=" text-md">
                 <a
                   href={item.path} // Use path from nav array
                   className="hover:text-orange-700 hover:underline duration-500 transition"

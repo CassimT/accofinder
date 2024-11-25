@@ -10,7 +10,7 @@ import { Card} from 'antd';
 
 
 
-export default function DetailsCard({icon, title, value}) {
+export default function DetailsCard({icon, title, value,src}) {
   
     
   return (          
@@ -21,11 +21,12 @@ export default function DetailsCard({icon, title, value}) {
                     height: '150px',
                     textAlign: 'center',
                     minWidth: '300px',
-                    boxShadow:'0 4px 8px rgba(8,9,10,0.1)',
+                    boxShadow:'0 4px 8px rgba(8,9,10,0.5)',
                 }}>  
                 <div style={{ fontSize: '' }}>{icon}</div>
-                <h1>{title}</h1>
+                <h1 style={{color:"black", fontSizeAdjust:"0.6"}}>{title}</h1>
                 <h1>{value}</h1>
+               
             </Card>
 
   )

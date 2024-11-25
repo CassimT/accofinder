@@ -18,12 +18,16 @@ import PaymentSelectionPage from "./pages/PaymentSelectionPage";
 import ForgetPasswordPage from "./pages/ForgetPasswordPage";
 import ProfileEditingPage from "./pages/ProfileEditingPage";
 import PaymentsHistoryPage from "./pages/PaymentsHistoryPage";
+import HistoryPage from "./pages/HistoryPage";
+import TeamPage from "./pages/TeamPage";
 
 
 
 const MainLayout = () => {
   const location = useLocation();
-  const noNavBarRoutes = ['/signin', '/signup', '/payment', '/details','/agents','/forgotpassword','/options','/profile/edit'];
+  const noNavBarRoutes = [
+    '/signin', '/signup', '/payment', '/details','/agents','/forgotpassword','/options','/profile/edit','/team'
+  ];
   const hideNavBar = noNavBarRoutes.some(route => location.pathname.startsWith(route));
 
   return (
@@ -33,7 +37,8 @@ const MainLayout = () => {
           <Route element = {<PrivateRouters/>}>
             <Route path="/payment" element={<PaymentPage />} /> 
             <Route path="/payment/history" element={<PaymentsHistoryPage />} /> 
-            <Route path="/agents/*" element={<AgentPage />} />       
+            <Route path="/agents/*" element={<AgentPage />} />  
+            <Route path="/history/" element={<HistoryPage />} />        
           </Route>
           <Route path="/" element={<HomPage />} />                
           <Route path="/details" element={<DetailsPage />} />
@@ -44,6 +49,7 @@ const MainLayout = () => {
           <Route path="/options" element={<PaymentSelectionPage />} />
           <Route path="/forgotpassword" element={<ForgetPasswordPage />} />
           <Route path="/profile/edit" element={<ProfileEditingPage />} />
+          <Route path="team" element={<TeamPage />} />
         </Routes>
       </div>
   );

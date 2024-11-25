@@ -15,7 +15,18 @@ export default function OncardDetails() {
     const {Room} = location.state
 
   return (
+    <>
+     <div className='grid h-auto w-auto sm:w-auto md:w-auto lg:w-[980px] items-center p-2'>
+        <DetailsCard 
+      
+        title={"House Description"}
+        value={Room.description}
+        />
+
+    </div>
+
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-8 p-4">
+
     <DetailsCard 
         icon={
             <DollarOutlined
@@ -28,7 +39,7 @@ export default function OncardDetails() {
                 }}
             />
         }
-        title={"price"}
+        title={"Price"}
         value={Room.price}
     /> 
 
@@ -44,7 +55,7 @@ export default function OncardDetails() {
                 }}
             />
         }
-        title={"location"}
+        title={"Location"}
         value={Room.location}
     />
 
@@ -60,7 +71,7 @@ export default function OncardDetails() {
                 }}
             />
         }
-        title={"rating"}
+        title={"Rating"}
         value={Room.rating}
     />
 
@@ -92,7 +103,7 @@ export default function OncardDetails() {
                 }}
             />
         }
-        title={"roomtype"}
+        title={"Room Type"}
         value={Room.type}
     />
 
@@ -111,7 +122,9 @@ export default function OncardDetails() {
         title={"Room Status"}
         value={Room.status}
     />
-</div>
 
+   
+</div>
+</>
   )
 }

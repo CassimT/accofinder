@@ -1,7 +1,12 @@
 import React from "react";
 import imagePath from "./bed3.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const goToSignup = () => {
+    navigate("/signup");
+  };
   return (
     <section className="w-screen h-screen overflow-hidden">
       <div
@@ -17,7 +22,8 @@ const Hero = () => {
             Off-Campus Living, <br /> On Campus Convenience
           </h1>
           <p className="font-semibold text-lg md:text-xl mt-5 text-white">
-            Discover beautiful hostels worldwide, chosen by top real estate experts. <br />
+            Discover beautiful hostels worldwide, chosen by top real estate
+            experts. <br />
             Your home is just a search away.
           </p>
           <button className="px-6 py-3 rounded-lg mt-8 bg-orange-700 text-white text-lg md:text-xl transition transform hover:scale-95">

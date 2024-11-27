@@ -30,8 +30,13 @@ const Signin = () => {
         localStorage.setItem("token",token)
         localStorage.setItem("userId",user.id)
         localStorage.setItem("tokenCreatedAt",createdAt)
+        localStorage.setItem("role",user.role)
         if(user.role === "agent" || user.role === "student-agent"){
-            navigate(`${redirect}`)
+            if(redirect === "/signin") {
+              navigate("/")
+            }else {
+              navigate(`${redirect}`)
+            }
         }else{
           navigate("/"); // Redirect to the profile page or another route
         }

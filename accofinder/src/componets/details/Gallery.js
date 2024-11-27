@@ -7,6 +7,7 @@ import { Typography } from 'antd';
 function Gallery() {
    const locaton = useLocation();
    const {Room} = locaton.state
+   const roomimagePath = Room.roomimage?.path
 
     const [model] = useState(false);
     //const [tempimgSrc, setTempImgSrc] = useState('');
@@ -23,7 +24,7 @@ function Gallery() {
                  <Title level={2}>{Room.name}</Title>
                  <div className="flex flex-col md:flex-row items-center ">
                   
-                 <img className='w-full md:w-[960px] h-auto md:h-[400px] rounded-md' src={Room.kitchenImg} alt='bedroom'/>
+                 <img className='w-full md:w-[960px] h-auto md:h-[400px] rounded-md' src={`http://localhost:3000/${roomimagePath}`} alt='bedroom'/>
             
                 </div>
 

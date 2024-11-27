@@ -22,7 +22,7 @@ function Signup() {
       });
         if(response.status === 201) {
           alert("Form submited successfully")
-          navigate("/singin")
+          navigate("/signin")
         }
       
     } catch (error) {
@@ -157,7 +157,7 @@ function Signup() {
               {...register("role", { required: "Please select a role" })}
             >
               <option value="Student">Student</option>
-              <option value="Landlord">Landlord</option>
+              <option value="Agent">Agent</option>
             </select>
           </label>
         </div>

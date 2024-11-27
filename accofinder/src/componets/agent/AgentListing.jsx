@@ -102,12 +102,17 @@ function AgentListing() {
       render: (text) => <span className="text-sm">{text}</span>,
     },
     {
-      title: 'Rating',
-      dataIndex: 'rating',
-      key: 'rating',
-      sorter: (a, b) => a.rating - b.rating,
-      render: (text) => <span className="text-sm">{text}</span>,
+      title: 'Status',
+      dataIndex: 'available',
+      key: 'status',
+      sorter: (a, b) => a.available - b.available,
+      render: (available) => (
+        <span className="text-sm">
+          {available ? "Available" : "Not Available"}
+        </span>
+      ),
     },
+    
     {
       title: 'Action',
       key: 'action',
@@ -116,7 +121,10 @@ function AgentListing() {
           <Button
             icon={<EditOutlined />}
             className="bg-blue-500 hover:bg-blue-600 text-white text-xs"
-            onClick={() => navigate(`edit`)}
+            onClick={()=> {
+              gotToEditListing()
+              localStorage.setItem("listingId",record._id)
+            }}
             size="small"
           >
             Edit

@@ -20,7 +20,6 @@ const AgentPage = () => {
             <Route path="/" element={<Dashboard />} /> 
             <Route path="add" element={<AddListingForm />} /> 
             <Route path="listing" element={<AgentListing />} /> 
-            <Route path="editlisting" element={<EdiditListingForm />} /> 
           </Routes>
         </div>
       </div>

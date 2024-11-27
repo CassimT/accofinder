@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Alert, Button } from "antd";  // Import Ant Design components
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import FormData from "form-data";
 
 const MobilePaymentForm = () => {
   const location = useLocation();
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     username: '',
     phone: '',
@@ -26,16 +27,21 @@ const MobilePaymentForm = () => {
       const response = await axios.post("http://localhost:3000/api/aitel-access/mobile/pay", data, {
           //headers to be included
       });
-
       // Show success alert
       setAlertMessage({ type: "success", message: "processing payement!" });
+      gotohistory()
     } catch (error) {
       // Show error alert
+      gotohistory()
       setAlertMessage({ type: "error", message: "Payment processing failed. Please try again." });
     } finally {
       setIsLoading(false);
     }
   };
+
+  const gotohistory =  ()=> {
+    navigate("/history")
+  }
 
   return (
     <div className="w-full h-screen">

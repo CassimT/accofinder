@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import ProfileButton from '../header/ProfileButton';
+
 import {
   EyeOutlined, 
   BookOutlined,
-   ProfileOutlined, 
+  ProfileOutlined, 
   UserOutlined,
   DollarCircleOutlined
 } from "@ant-design/icons";
@@ -30,6 +32,7 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col justify-center items-center max-w-full p-4">
+      <ProfileButton/>
       <Typography.Title level={3}>User ID: {userId}</Typography.Title>
       <Space size={20} direction={isVertical ? "vertical" : "horizontal"} style={{ width: '80%', justifyContent: 'center' }}>
         <DashboardCard

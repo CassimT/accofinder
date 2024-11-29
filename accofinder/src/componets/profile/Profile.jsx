@@ -14,7 +14,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/users/${userId}`);
+        const response = await axios.get(` https://accofinderbackend-1.onrender.com/api/users/${userId}`);
         setUser(response.data); // Set user data from the API response
         setLoading(false); // Stop loading
       } catch (error) {
@@ -38,7 +38,7 @@ const Profile = () => {
   const handleLogout = async () => {
     try {
       // Call the logout API endpoint
-      const response = await axios.post("http://localhost:3000/api/auth/logout");
+      const response = await axios.post(" https://accofinderbackend-1.onrender.com/api/auth/logout");
       if (response.status === 200) {
         alert(response.data.msg); // Notify the user of successful logout
         localStorage.clear(); // Clear local storage
@@ -66,7 +66,7 @@ const Profile = () => {
       <div className="flex justify-center bg-blue-200 mt-12 relative">
         <div className="relative -mb-16">
           <img
-            src="../logo512.png"
+            src="../test1.png"
             alt="Profile"
             className="w-32 h-32 rounded-full border-2 border-blue-400 mx-auto"
           />

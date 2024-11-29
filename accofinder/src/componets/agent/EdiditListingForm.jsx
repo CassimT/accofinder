@@ -66,7 +66,7 @@ const EditListingForm = ({ listingId }) => {
   
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/listings/${id}`,
+        `https://accofinderbackend-1.onrender.com/api/listings/${id}`,
         form,
         {
           headers: {

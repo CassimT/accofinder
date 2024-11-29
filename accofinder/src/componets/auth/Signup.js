@@ -17,7 +17,7 @@ function Signup() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("http://localhost:3000/api/users/register", data, {
+      const response = await axios.post("https://accofinderbackend-1.onrender.com/api/users/register", data, {
        // withCredentials: true, // Ensure cookies are sent for session management
       });
         if(response.status === 201) {

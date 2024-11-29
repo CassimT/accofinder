@@ -24,7 +24,7 @@ const MobilePaymentForm = () => {
     setAlertMessage(null);  // Clear previous messages
 
     try {
-      const response = await axios.post("http://localhost:3000/api/aitel-access/mobile/pay", data, {
+      const response = await axios.post("https://accofinderbackend-1.onrender.com/api/aitel-access/mobile/pay", data, {
           //headers to be included
       });
       // Show success alert

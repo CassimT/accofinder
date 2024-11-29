@@ -4,7 +4,7 @@ import { EditOutlined } from '@ant-design/icons';
 export default function ProfileEditForm() {
   const [name, setName] = useState('Abram Prosser');
   const [email, setEmail] = useState('HelgaR.Kovach@example.com');
-  const [profileImage, setProfileImage] = useState('../logo512.png');
+  const [profileImage, setProfileImage] = useState('../test1.png');
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);

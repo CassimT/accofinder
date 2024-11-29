@@ -17,7 +17,7 @@ function AgentListing() {
     queryKey: ['listings'],
     queryFn: async () => {
       //fetching data to API endpoint
-      const response = await axios.get('http://localhost:3000/api/listings'); 
+      const response = await axios.get('https://accofinderbackend-1.onrender.com/api/listings'); 
       return response.data;
     }
   });
@@ -77,7 +77,7 @@ function AgentListing() {
   }
   // Deleting listing handler
   const handleDelete = (listingId) => {
-    axios.delete(`http://localhost:3000/api/listings/${listingId}`).then(() => {
+    axios.delete(`https://accofinderbackend-1.onrender.com/api/listings/${listingId}`).then(() => {
       refetch(); // refetch after deletion
     });
   };

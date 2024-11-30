@@ -1,4 +1,5 @@
-import React from "react"; 
+import React from "react";
+import {Link} from "react-router-dom"; 
 
 const Footer = () => {
   return (
@@ -9,24 +10,24 @@ const Footer = () => {
         </p>
         <ul className="flex flex-col sm:flex-row gap-5 sm:gap-10 justify-center sm:justify-start">
           <li>
-            <a href="" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
+            <Link to="/" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
+            <Link to="" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
               Agent
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
-              Accomodation
-            </a>
+            <Link to="team" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
+              Team
+            </Link>
           </li>
           <li>
-            <a href="" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
+            <Link to="" className="font-sans font-medium hover:text-orange-500 duration-500 hover:underline">
               FAQ
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

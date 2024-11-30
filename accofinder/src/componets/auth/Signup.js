@@ -46,6 +46,7 @@ function Signup() {
             Firstname
             <input
               type="text"
+              pattern="[A-Za-z]"
               placeholder="firstname"
               className="px-2 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               {...register("firstname", { required: true })}
@@ -58,6 +59,7 @@ function Signup() {
             Lastname
             <input
               type="text"
+              pattern="[A-Za-z]"
               placeholder="lastname"
               className="px-2 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               {...register("lastname", { required: true })}
@@ -73,6 +75,7 @@ function Signup() {
           <label className="block text-black mb-2">Username</label>
           <input
             type="text"
+            pattern="[A-Za-z]"
             placeholder="Username"
             className="px-2 py-2 border focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg w-full"
             {...register("username", { required: true })}

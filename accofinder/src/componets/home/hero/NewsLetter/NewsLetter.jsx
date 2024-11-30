@@ -1,6 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewsLetter = () => {
+  const navigate = useNavigate();
+  const goToSignUp = () => {
+    navigate("/signup");
+  };
   return (
     <div className="w-full h-auto sm:h-90 bg-yellow-200">
       <div className="flex flex-col items-center justify-between">
@@ -15,7 +20,10 @@ const NewsLetter = () => {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row mb-6 gap-6 sm:gap-8">
-          <button className="text-white py-2 px-4 transition duration-500 hover:scale-95 bg-black font-bold rounded-xl w-full sm:w-auto">
+          <button
+            onClick={goToSignUp}
+            className="text-white py-2 px-4 transition duration-500 hover:scale-95 bg-black font-bold rounded-xl w-full sm:w-auto"
+          >
             Get started now
           </button>
           <button className="text-black py-2 px-4 transition duration-500 hover:scale-95 bg-none border border-black font-bold rounded-xl w-full sm:w-auto">

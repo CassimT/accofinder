@@ -6,6 +6,7 @@ import { SearchContext } from "../componets/utils/SearchContext";
 import { Spin, Alert } from "antd";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Filtering from "../componets/searching/Filtering";
 
 // Fetch Listings
 const fetchListings = async () => {
@@ -57,6 +58,7 @@ export default function SearchingPage() {
         title={headingTitle}
         subtitle={searchTermFromQuery ? `Results for ${searchTermFromQuery}` : ""}
       />
+      <Filtering/>
       <Listing lists={filteredListings} searchTerm={headingTitle} />
     </div>
   );

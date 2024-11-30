@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Alert, Button } from "antd";  // Import Ant Design components
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import FormData from "form-data";
 
 const MobilePaymentForm = () => {
-  const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     phone: '',
@@ -24,24 +22,21 @@ const MobilePaymentForm = () => {
     setAlertMessage(null);  // Clear previous messages
 
     try {
-      const response = await axios.post("https://accofinderbackend-1.onrender.com/api/aitel-access/mobile/pay", data, {
-          //headers to be included
-      });
+      const response = await axios.post("https://accofinderbackend-1.onrender.com/api/aitel-access/mobile/pay", data);
+      
       // Show success alert
-      setAlertMessage({ type: "success", message: "processing payement!" });
-      gotohistory()
+      setAlertMessage({ type: "success", message: "Processing payment!" });
+      
+      // Pass the response data to the history page as state
+      navigate("/history", { state: { transaction: response.data.transaction, apiResponse: response.data.apiResponse } });
+
     } catch (error) {
       // Show error alert
-      gotohistory()
       setAlertMessage({ type: "error", message: "Payment processing failed. Please try again." });
     } finally {
       setIsLoading(false);
     }
   };
-
-  const gotohistory =  ()=> {
-    navigate("/history")
-  }
 
   return (
     <div className="w-full h-screen">

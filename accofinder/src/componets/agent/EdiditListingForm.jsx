@@ -20,7 +20,7 @@ const EditListingForm = ({ listingId }) => {
     const fetchListingData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/listings/${id}`
+          `https://accofinderbackend-1.onrender.com/api/listings/${id}`
         );
         const imagePath = response.data.roomimage?.path;
         setFormData({

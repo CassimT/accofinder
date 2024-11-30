@@ -32,9 +32,10 @@ const Profile = () => {
   }, [userId]);
 
   const goToEditForm = () => {
-    navigate("profile/edit");
+    navigate("profile/edit", {
+      state: { user } 
+    });
   };
-
   const handleLogout = async () => {
     try {
       // Call the logout API endpoint

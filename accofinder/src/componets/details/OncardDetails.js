@@ -104,7 +104,7 @@ export default function OncardDetails() {
             />
         }
         title={"Room Type"}
-        value={Room.type}
+        value={Room.roomtype}
     />
 
     <DetailsCard 
@@ -120,7 +120,7 @@ export default function OncardDetails() {
             />
         }
         title={"Room Status"}
-        value={Room.status}
+        value={Room.available}
     />
 
    

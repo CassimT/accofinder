@@ -24,7 +24,7 @@ function Gallery() {
                  <Title level={2}>{Room.name}</Title>
                  <div className="flex flex-col md:flex-row items-center ">
                   
-                 <img className='w-full md:w-[960px] h-auto md:h-[400px] rounded-md' src={`http://localhost:3000/${roomimagePath}`} alt='bedroom'/>
+                 <img className='w-full md:w-[960px] h-auto md:h-[400px] rounded-md' src={`https://accofinderbackend-1.onrender.com/${roomimagePath}`} alt='bedroom'/>
             
                 </div>
 

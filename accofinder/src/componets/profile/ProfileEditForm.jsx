@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { EditOutlined } from '@ant-design/icons';
 
 export default function ProfileEditForm() {
-  const [name, setName] = useState('Abram Prosser');
-  const [email, setEmail] = useState('HelgaR.Kovach@example.com');
-  const [profileImage, setProfileImage] = useState('../test1.png');
+  const location = useLocation();
+  const { user } = location.state || {}; // Get the user data from location state
+
+  const [name, setName] = useState(user?.name || ''); 
+  const [email, setEmail] = useState(user?.email || '');
+  const [profileImage, setProfileImage] = useState(user?.profileImage || '../test1.png'); // Default to user's profile image
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+      setEmail(user.email);
+      setProfileImage(user.profileImage || '../test1.png');
+    }
+  }, [user]);
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);

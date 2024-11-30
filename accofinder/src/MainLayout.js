@@ -20,13 +20,14 @@ import ProfileEditingPage from "./pages/ProfileEditingPage";
 import PaymentsHistoryPage from "./pages/PaymentsHistoryPage";
 import HistoryPage from "./pages/HistoryPage";
 import TeamPage from "./pages/TeamPage";
+import ListingEditPage from "./pages/ListingEditPage";
 
 
 
 const MainLayout = () => {
   const location = useLocation();
   const noNavBarRoutes = [
-    '/signin', '/signup', '/payment', '/details','/agents','/forgotpassword','/options','/profile/edit','/team'
+    '/signin', '/signup', '/payment', '/details','/agents','/forgotpassword','/options','/profile/edit','/team','/editlisting','history'
   ];
   const hideNavBar = noNavBarRoutes.some(route => location.pathname.startsWith(route));
 
@@ -38,7 +39,7 @@ const MainLayout = () => {
             <Route path="/payment" element={<PaymentPage />} /> 
             <Route path="/payment/history" element={<PaymentsHistoryPage />} /> 
             <Route path="/agents/*" element={<AgentPage />} />  
-            <Route path="/history/" element={<HistoryPage />} />        
+            <Route path="/history" element={<HistoryPage />} />        
           </Route>
           <Route path="/" element={<HomPage />} />                
           <Route path="/details" element={<DetailsPage />} />
@@ -49,9 +50,11 @@ const MainLayout = () => {
           <Route path="/options" element={<PaymentSelectionPage />} />
           <Route path="/forgotpassword" element={<ForgetPasswordPage />} />
           <Route path="/profile/edit" element={<ProfileEditingPage />} />
-          <Route path="team" element={<TeamPage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/editlisting" element={<ListingEditPage />} /> 
         </Routes>
       </div>
+    
   );
 };
 

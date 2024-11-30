@@ -11,9 +11,6 @@ const AddListingForm = () => {
     email: '',
     agentphone: '',
     roomimage: null,
-    toiletimage: null,
-    kitchenimage: null,//bags
-    outsideviewimage: null,
     distance: '',
   });
 
@@ -29,7 +26,8 @@ const AddListingForm = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     // Handle form submission logic herez
-    const agentId = "6489d5fa9e8f1b47c27f5e99" // to be replaced with the acture Use id
+    const id = localStorage.getItem("userId")
+    const agentId = id // to be replaced with the acture Use id
     const rating = 0.0;
     const review = ""
     const form = new FormData();
@@ -212,40 +210,6 @@ const AddListingForm = () => {
               className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition duration-200 text-sm" 
             />
           </div>
-          {/**kichen image */}
-          <div className="flex flex-col col-span-2">
-            <label className="block text-gray-700 mb-1 text-sm font-medium">Upload kitchen Image</label>
-            <input
-              type="file"
-              name="kitchenimage"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition duration-200 text-sm" 
-            />
-          </div>
-           {/**Toilet image */}
-          <div className="flex flex-col col-span-2">
-            <label className="block text-gray-700 mb-1 text-sm font-medium">Upload Toilet Image</label>
-            <input
-              type="file"
-              name="toiletimage"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition duration-200 text-sm" 
-            />
-          </div>
-          {/**outside View image */}
-          <div className="flex flex-col col-span-2">
-            <label className="block text-gray-700 mb-1 text-sm font-medium">Upload Outside View Image</label>
-            <input
-              type="file"
-              name="outsideviewimage"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition duration-200 text-sm" 
-            />
-          </div>
-
           {/* Submit Button */}
           <div className="flex justify-center col-span-2 mt-4">
             <button

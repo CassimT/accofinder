@@ -472,9 +472,13 @@ export const footer = [
     text: [{ list: "About" }, { list: "Blog" }, { list: "Pricing" }, { list: "Affiliate" }, { list: "Login" }, { list: "Changelog" }],
   },
 ]
- export const filter = [
-  {text: "Single Room"},{text: "Shared Room"},{text: "Self Contained"},{text: "Near compus"}
- ]
+export const filter = [
+  { text: "Single Room", field: "roomtype", search: "Single" },
+  { text: "Shared Room", field: "roomtype", search: "Shared" },
+  { text: "Self Contained", field: "roomtype", search: "Self Contained" },
+  { text: "Near Campus", field: "distance", search: "Near" }, // Assume "Near" means distance less than a threshold
+];
+
 
 
 

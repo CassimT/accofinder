@@ -17,12 +17,20 @@ const Signin = () => {
 
   const onSubmit = async (data) => {
     try {
+<<<<<<< HEAD
       const response = await axios.post("http://localhost:3000/api/auth/login", data);
+=======
+      const response = await axios.post("https://accofinderbackend-1.onrender.com/api/auth/login", data, {
+       // withCredentials: true, // Ensure cookies are sent for session management
+      });
+      
+>>>>>>> 21382514a2fb6e586289c48ab448fe0c3607e7fd
       if (response.status === 201) {
         const { user, token } = response.data;
         const redirect = localStorage.getItem('redirectAfterLogin');
         console.log("Login successful!");
         console.log("User object:", user);
+<<<<<<< HEAD
         const createdAt = Date.now();
         localStorage.setItem("token", token);
         localStorage.setItem("userId", user.id);
@@ -30,6 +38,20 @@ const Signin = () => {
         if (user.role === "agent" || user.role === "student-agent") {
           navigate(`${redirect}`);
         } else {
+=======
+        const createdAt = Date.now()
+        localStorage.setItem("token",token)
+        localStorage.setItem("userId",user.id)
+        localStorage.setItem("tokenCreatedAt",createdAt)
+        localStorage.setItem("role",user.role)
+        if(user.role === "agent" || user.role === "student-agent"){
+            if(redirect === "/signin") {
+              navigate("/")
+            }else {
+              navigate(`${redirect}`)
+            }
+        }else{
+>>>>>>> 21382514a2fb6e586289c48ab448fe0c3607e7fd
           navigate("/"); // Redirect to the profile page or another route
         }
       }

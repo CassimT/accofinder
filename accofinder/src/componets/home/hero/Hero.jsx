@@ -26,7 +26,13 @@ const Hero = () => {
             experts. <br />
             Your home is just a search away.
           </p>
+<<<<<<< HEAD
           <button onClick={goToSignup} className="px-6 py-3 rounded-lg mt-8 bg-orange-700 text-white text-lg md:text-xl transition transform hover:scale-95">
+=======
+          <button 
+          onClick={goToSignup}
+            className="px-6 py-3 rounded-lg mt-8 bg-orange-700 text-white text-lg md:text-xl transition transform hover:scale-95">
+>>>>>>> 21382514a2fb6e586289c48ab448fe0c3607e7fd
             Get Started
           </button>
         </div>

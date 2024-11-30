@@ -17,6 +17,7 @@ function Signup() {
 
   const onSubmit = async (data) => {
     try {
+<<<<<<< HEAD
       const response = await axios.post("http://localhost:3000/api/users/register", data, {
         // withCredentials: true, // Ensure cookies are sent for session management
       });
@@ -24,6 +25,16 @@ function Signup() {
         alert("Form submitted successfully");
         navigate("/signin");
       }
+=======
+      const response = await axios.post("https://accofinderbackend-1.onrender.com/api/users/register", data, {
+       // withCredentials: true, // Ensure cookies are sent for session management
+      });
+        if(response.status === 201) {
+          alert("Form submited successfully")
+          navigate("/signin")
+        }
+      
+>>>>>>> 21382514a2fb6e586289c48ab448fe0c3607e7fd
     } catch (error) {
       console.error("Signup failed:", error.response?.data || error.message);
       alert("Signup failed. Please try again.");
@@ -140,6 +151,7 @@ function Signup() {
           )}
         </div>
 
+<<<<<<< HEAD
         {/* Sign Up as */}
         <div className="mb-4 w-full">
           <label className="block text-black font-semibold mb-2">Sign up as:</label>
@@ -150,6 +162,20 @@ function Signup() {
             <option value="Student">Student</option>
             <option value="Landlord">Landlord</option>
           </select>
+=======
+        {/* SignUp as */}
+        <div className="mb-4 w-full px-4">
+          <label className="block text-black font-semibold mb-2">
+            Sign up as:
+            <select
+              className="px-4 py-2 border ml-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+              {...register("role", { required: "Please select a role" })}
+            >
+              <option value="Student">Student</option>
+              <option value="Agent">Agent</option>
+            </select>
+          </label>
+>>>>>>> 21382514a2fb6e586289c48ab448fe0c3607e7fd
         </div>
 
         {/* Terms and Condition */}
